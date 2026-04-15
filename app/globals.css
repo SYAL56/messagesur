@@ -1,0 +1,57 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --font-sans: 'DM Sans', sans-serif;
+  --font-serif: 'DM Serif Display', serif;
+
+  --cream: #FAF7F2;
+  --cream-dark: #F0EBE1;
+  --warm-brown: #2C1810;
+  --mid-brown: #6B4C3B;
+  --light-brown: #A07860;
+
+  --safe-bg: #EBF5EC;
+  --safe-border: #7BC67E;
+  --safe-text: #1B5E20;
+  --safe-accent: #2E7D32;
+
+  --warn-bg: #FFF8E6;
+  --warn-border: #FFB74D;
+  --warn-text: #7A4100;
+  --warn-accent: #E65100;
+
+  --danger-bg: #FDECEA;
+  --danger-border: #EF9A9A;
+  --danger-text: #7F0000;
+  --danger-accent: #C62828;
+
+  --blue: #1565C0;
+  --blue-light: #E3F2FD;
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-xl: 32px;
+}
+
+html { font-size: 18px; }
+
+body {
+  font-family: var(--font-sans);
+  background: var(--cream);
+  color: var(--warm-brown);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* Subtle grain texture on background */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
+
+* { position: relative; z-index: 1; }

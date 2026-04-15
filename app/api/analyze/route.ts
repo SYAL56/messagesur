@@ -1,0 +1,55 @@
+import { NextRequest, NextResponse } from 'next/server'
+import Anthropic from '@anthropic-ai/sdk'
+
+const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY })
+
+const SYSTEM_PROMPT = `Tu es un assistant de sécurité numérique qui aide les personnes âgées à détecter les arnaques par SMS ou email en France.
+
+Analyse le message fourni et réponds UNIQUEMENT en JSON valide, sans markdown, sans backticks, avec ce format exact :
+{
+  "niveau": "danger" | "attention" | "safe",
+  "titre": "titre court en français très simple (max 8 mots)",
+  "explication": "explication claire en 2-3 phrases, langage très simple, comme si tu parlais à un senior de 75 ans",
+  "conseil": "une seule action concrète à faire maintenant, en 1 phrase",
+  "signaux": ["signal 1", "signal 2", "signal 3"]
+}
+
+Règles :
+- "danger" = arnaque quasi-certaine (faux organismes, liens suspects, demande d'argent ou infos personnelles)
+- "attention" = suspect mais incertain, mérite vérification
+- "safe" = message légitime et normal
+- Les "signaux" sont les indices qui ont guidé ton analyse (3 max, phrases courtes)
+- Toujours en français, jamais de jargon technique`
+
+export async function POST(req: NextRequest) {
+  try {
+    const { message } = await req.json()
+
+    if (!message || typeof message !== 'string') {
+      return NextResponse.json({ error: 'Message manquant ou invalide' }, { status: 400 })
+    }
+
+    if (message.length > 2000) {
+      return NextResponse.json({ error: 'Message trop long (2000 caractères max)' }, { status: 400 })
+    }
+
+    const response = await client.messages.create({
+      model: 'claude-sonnet-4-20250514',
+      max_tokens: 1000,
+      system: SYSTEM_PROMPT,
+      messages: [{ role: 'user', content: `Analyse ce message reçu : "${message}"` }]
+    })
+
+    const text = response.content[0].type === 'text' ? response.content[0].text : ''
+    const clean = text.replace(/```json|```/g, '').trim()
+    const result = JSON.parse(clean)
+
+    return NextResponse.json(result)
+  } catch (error) {
+    console.error('Erreur analyse:', error)
+    return NextResponse.json(
+      { error: 'Erreur lors de l\'analyse. Veuillez réessayer.' },
+      { status: 500 }
+    )
+  }
+}
