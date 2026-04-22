@@ -15,7 +15,7 @@ const dmSerif = DM_Serif_Display({
 })
 
 export const metadata: Metadata = {
-  title: 'MessageSûr — Détectez les arnaques numériques en quelques secondes',
+  title: 'MessageSûr ',
   description: 'Analysez vos SMS et emails suspects en un clic. Protégez vos proches des arnaques numériques.',
   keywords: 'arnaque, phishing, SMS, email, senior, protection, sécurité',
 }

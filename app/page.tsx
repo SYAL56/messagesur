@@ -105,7 +105,7 @@ export default function Home() {
         </div>
         <div>
           <h1 className={styles.logoName}>MessageSûr</h1>
-          <p className={styles.logoTagline}>Protection numérique pour les seniors</p>
+          <p className={styles.logoTagline}>Détectez les arnaques numériques</p>
         </div>
       </header>
 
