@@ -23,7 +23,7 @@ Règles :
 
 export async function POST(req: NextRequest) {
   try {
-    const { message } = await req.json()
+    const { message, sender } = await req.json()
 
     if (!message || typeof message !== 'string') {
       return NextResponse.json({ error: 'Message manquant ou invalide' }, { status: 400 })
@@ -37,7 +37,7 @@ export async function POST(req: NextRequest) {
       model: 'claude-sonnet-4-6',
       max_tokens: 1000,
       system: SYSTEM_PROMPT,
-      messages: [{ role: 'user', content: `Analyse ce message reçu : "${message}"` }]
+      messages: [{ role: 'user', content: `Analyse ce message reçu${sender ? ` de l'expéditeur : "${sender}"` : ''} : "${message}"` }]
     })
 
     const text = response.content[0].type === 'text' ? response.content[0].text : ''

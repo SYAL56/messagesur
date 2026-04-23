@@ -57,7 +57,8 @@ const NIVEAU_CONFIG = {
 }
 
 export default function Home() {
-  const [message, setMessage] = useState('')
+const [sender, setSender] = useState('')  
+const [message, setMessage] = useState('')
   const [loading, setLoading] = useState(false)
   const [result, setResult] = useState<AnalysisResult | null>(null)
   const [error, setError] = useState<string | null>(null)
@@ -72,7 +73,7 @@ export default function Home() {
       const res = await fetch('/api/analyze', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message }),
+        body: JSON.stringify({ message, sender }),
       })
       const data = await res.json()
       if (!res.ok) throw new Error(data.error || 'Erreur inconnue')
@@ -126,7 +127,18 @@ export default function Home() {
         {!result ? (
           <>
             <label className={styles.inputLabel} htmlFor="msg">
-              Collez votre message ici
+<label className={styles.inputLabel} htmlFor="sender">
+  Expéditeur (optionnel)
+</label>
+<input
+  id="sender"
+  type="text"
+  className={styles.senderInput}
+  value={sender}
+  onChange={e => setSender(e.target.value)}
+  placeholder="Ex: 06 12 34 56 78 ou service@chronopost-fr.com"
+/>              
+Collez votre message ici
             </label>
             <textarea
               id="msg"
