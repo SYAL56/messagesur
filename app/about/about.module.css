@@ -1,0 +1,214 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+.main {
+  min-height: 100vh;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 4rem;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 3rem;
+}
+
+.logoMark {
+  width: 48px;
+  height: 48px;
+  background: #1565C0;
+  color: white;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.logoMark svg { width: 26px; height: 26px; }
+
+.logoName {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--warm-brown);
+  line-height: 1;
+  margin-bottom: 3px;
+}
+
+.logoTagline {
+  font-size: 0.72rem;
+  color: var(--light-brown);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.hero { margin-bottom: 2rem; }
+
+.heroTitle {
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  font-weight: 400;
+  color: var(--warm-brown);
+  line-height: 1.2;
+}
+
+.heroAccent { color: #1565C0; }
+
+.card {
+  background: white;
+  border-radius: 32px;
+  padding: 1.75rem;
+  border: 1px solid var(--cream-dark);
+  box-shadow: 0 2px 20px rgba(44, 24, 16, 0.06);
+  margin-bottom: 1.25rem;
+}
+
+.sectionTitle {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--warm-brown);
+  margin-bottom: 1rem;
+}
+
+.text {
+  font-size: 0.95rem;
+  color: var(--mid-brown);
+  line-height: 1.75;
+  margin-bottom: 0.75rem;
+}
+
+.text:last-child { margin-bottom: 0; }
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 1.25rem;
+  padding: 1rem;
+  background: var(--cream);
+  border-radius: 8px;
+}
+
+.avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #1565C0;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.name {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--warm-brown);
+  margin-bottom: 2px;
+}
+
+.role {
+  font-size: 0.85rem;
+  color: #1565C0;
+  margin-bottom: 2px;
+}
+
+.location {
+  font-size: 0.8rem;
+  color: var(--light-brown);
+}
+
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.stepNum {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #1565C0;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.stepText {
+  font-size: 0.95rem;
+  color: var(--mid-brown);
+  line-height: 1.5;
+}
+
+.guarantees {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.guarantee {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px;
+  background: var(--cream);
+  border-radius: 8px;
+}
+
+.guaranteeIcon {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.guarantee p {
+  font-size: 0.9rem;
+  color: var(--mid-brown);
+  line-height: 1.5;
+}
+
+.contactBtn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.9rem 1.5rem;
+  background: #1565C0;
+  color: white;
+  border-radius: 14px;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.contactBtn:hover {
+  background: #0D47A1;
+  transform: translateY(-1px);
+}
+
+.backLink {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.backLink a {
+  font-size: 0.9rem;
+  color: var(--light-brown);
+  text-decoration: none;
+}
+
+.backLink a:hover { color: var(--mid-brown); }
