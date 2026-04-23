@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { DM_Sans, DM_Serif_Display } from 'next/font/google'
-import './globals.css'
 import { Analytics } from '@vercel/analytics/react'
+import './globals.css'
 
 const dmSans = DM_Sans({
   subsets: ['latin'],
@@ -18,13 +18,16 @@ const dmSerif = DM_Serif_Display({
 export const metadata: Metadata = {
   title: 'MessageSûr — Détectez les arnaques numériques en quelques secondes',
   description: 'Analysez vos SMS et emails suspects en un clic. Protégez vos proches des arnaques numériques.',
-  keywords: 'arnaque, phishing, SMS, email, senior, protection, sécurité',
+  keywords: 'arnaque, phishing, SMS, email, protection, sécurité',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fr">
       <body className={`${dmSans.variable} ${dmSerif.variable}`}>
-    {children}
-    <Analytics />
-</body>
+        {children}
+        <Analytics />
+      </body>
+    </html>
+  )
+}
