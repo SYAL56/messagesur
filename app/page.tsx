@@ -232,7 +232,7 @@ export default function Home() {
           <span>·</span>
           <a href="/mentions-legales">Mentions légales</a>
           <span>·</span>
-          <a href="/contact">Contact</a>
+          <a href="https://mail.google.com/mail/?view=cm&to=messagesur.bzh@gmail.com">Contact</a>
         </p>
       </footer>
     </main>
