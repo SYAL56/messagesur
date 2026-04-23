@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { DM_Sans, DM_Serif_Display } from 'next/font/google'
 import './globals.css'
+import { Analytics } from '@vercel/analytics/react'
 
 const dmSans = DM_Sans({
   subsets: ['latin'],
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fr">
-      <body className={`${dmSans.variable} ${dmSerif.variable}`}>{children}</body>
-    </html>
-  )
-}
+      <body className={`${dmSans.variable} ${dmSerif.variable}`}>
+  {children}
+  <Analytics />
+</body>
