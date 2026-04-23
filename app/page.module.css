@@ -440,3 +440,16 @@
   border-color: #1565C0;
   background: white;
 }
+.guideBtn {
+  display: inline-block;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #1565C0;
+  text-decoration: none;
+  border-bottom: 1px solid #1565C0;
+  padding-bottom: 2px;
+}
+
+.guideBtn:hover {
+  opacity: 0.7;
+}

@@ -119,7 +119,9 @@ const [message, setMessage] = useState('')
         <p className={styles.heroSub}>
           Copiez votre SMS ou email suspect ci-dessous.<br />
           Notre assistant vous répond en quelques secondes.
-        </p>
+        </p><a href="/guide" className={styles.guideBtn}>
+  Voir le guide d'utilisation →
+</a>
       </section>
 
       {/* Main card */}
