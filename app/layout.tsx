@@ -19,6 +19,9 @@ export const metadata: Metadata = {
   title: 'MessageSûr — Détectez les arnaques numériques en quelques secondes',
   description: 'Analysez vos SMS et emails suspects en un clic. Protégez vos proches des arnaques numériques.',
   keywords: 'arnaque, phishing, SMS, email, protection, sécurité',
+  verification: {
+    google: '5Bss1vjj9StBapP-pOrTaUnG_XcXuO1QuywO0nMeXwE',
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
