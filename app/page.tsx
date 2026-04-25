@@ -77,7 +77,7 @@ export default function Home() {
           <p className={styles.logoTagline}>Protection contre les arnaques numériques</p>
         </div>
         <nav className={styles.nav}>
-          <a href="/blog" className={styles.navLink}>Nos guides et conseils</a>
+          
         </nav>
       </header>
 
@@ -85,6 +85,8 @@ export default function Home() {
         <h2 className={styles.heroTitle}>Ce message est-il<br /><span className={styles.heroAccent}>une arnaque ?</span></h2>
         <p className={styles.heroSub}>Copiez votre SMS, email ou chargez une image/PDF suspect.<br />Notre assistant vous répond en quelques secondes.</p>
         <a href="/guide" className={styles.guideBtn}>Voir le guide d'utilisation →</a>
+        <br />
+        <a href="/blog" className={styles.guideBtn}>📚 Nos guides et conseils →</a>
       </section>
 
       <div className={styles.card}>
