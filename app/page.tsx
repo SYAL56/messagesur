@@ -57,23 +57,29 @@ const NIVEAU_CONFIG = {
 }
 
 export default function Home() {
-const [sender, setSender] = useState('')  
-const [message, setMessage] = useState('')
+  const [message, setMessage] = useState('')
+  const [sender, setSender] = useState('')
+  const [file, setFile] = useState<File | null>(null)
+  const [preview, setPreview] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)
   const [result, setResult] = useState<AnalysisResult | null>(null)
   const [error, setError] = useState<string | null>(null)
 
   async function analyze() {
-    if (!message.trim()) return
+    if (!message.trim() && !file) return
     setLoading(true)
     setResult(null)
     setError(null)
 
     try {
+      const formData = new FormData()
+      if (message) formData.append('message', message)
+      if (sender) formData.append('sender', sender)
+      if (file) formData.append('file', file)
+
       const res = await fetch('/api/analyze', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message, sender }),
+        body: formData,
       })
       const data = await res.json()
       if (!res.ok) throw new Error(data.error || 'Erreur inconnue')
@@ -87,6 +93,9 @@ const [message, setMessage] = useState('')
 
   function reset() {
     setMessage('')
+    setSender('')
+    setFile(null)
+    setPreview(null)
     setResult(null)
     setError(null)
   }
@@ -95,7 +104,6 @@ const [message, setMessage] = useState('')
 
   return (
     <main className={styles.main}>
-      {/* Header */}
       <header className={styles.header}>
         <div className={styles.logoMark}>
           <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -106,41 +114,41 @@ const [message, setMessage] = useState('')
         </div>
         <div>
           <h1 className={styles.logoName}>MessageSûr</h1>
-          <p className={styles.logoTagline}>Détectez les arnaques numériques</p>
+          <p className={styles.logoTagline}>Protection contre les arnaques numériques</p>
         </div>
       </header>
 
-      {/* Hero */}
       <section className={styles.hero}>
         <h2 className={styles.heroTitle}>
           Ce message est-il<br />
           <span className={styles.heroAccent}>une arnaque ?</span>
         </h2>
         <p className={styles.heroSub}>
-          Copiez votre SMS ou email suspect ci-dessous.<br />
+          Copiez votre SMS, email ou chargez une image/PDF suspect.<br />
           Notre assistant vous répond en quelques secondes.
-        </p><a href="/guide" className={styles.guideBtn}>
-  Voir le guide d'utilisation →
-</a>
+        </p>
+        <a href="/guide" className={styles.guideBtn}>
+          Voir le guide d'utilisation →
+        </a>
       </section>
 
-      {/* Main card */}
       <div className={styles.card}>
         {!result ? (
           <>
+            <label className={styles.inputLabel} htmlFor="sender">
+              Expéditeur (optionnel)
+            </label>
+            <input
+              id="sender"
+              type="text"
+              className={styles.senderInput}
+              value={sender}
+              onChange={e => setSender(e.target.value)}
+              placeholder="Ex: 06 12 34 56 78 ou service@chronopost-fr.com"
+            />
+
             <label className={styles.inputLabel} htmlFor="msg">
-<label className={styles.inputLabel} htmlFor="sender">
-  Expéditeur (optionnel)
-</label>
-<input
-  id="sender"
-  type="text"
-  className={styles.senderInput}
-  value={sender}
-  onChange={e => setSender(e.target.value)}
-  placeholder="Ex: 06 12 34 56 78 ou service@chronopost-fr.com"
-/>              
-Collez votre message ici
+              Collez votre message ici
             </label>
             <textarea
               id="msg"
@@ -151,6 +159,35 @@ Collez votre message ici
               rows={5}
               maxLength={2000}
             />
+
+            <div className={styles.uploadZone}>
+              <label htmlFor="fileUpload" className={styles.uploadLabel}>
+                📎 Ou charger une image / PDF
+                <input
+                  id="fileUpload"
+                  type="file"
+                  accept="image/jpeg,image/png,application/pdf"
+                  style={{ display: 'none' }}
+                  onChange={e => {
+                    const f = e.target.files?.[0] || null
+                    setFile(f)
+                    if (f && f.type.startsWith('image/')) {
+                      const url = URL.createObjectURL(f)
+                      setPreview(url)
+                    } else {
+                      setPreview(null)
+                    }
+                  }}
+                />
+              </label>
+              {file && (
+                <div className={styles.fileInfo}>
+                  {preview && <img src={preview} alt="aperçu" className={styles.previewImg} />}
+                  <span>{file.name}</span>
+                  <button onClick={() => { setFile(null); setPreview(null) }}>✕</button>
+                </div>
+              )}
+            </div>
 
             <div className={styles.examples}>
               <span className={styles.examplesLabel}>Exemples à tester :</span>
@@ -172,7 +209,7 @@ Collez votre message ici
             <button
               className={styles.analyzeBtn}
               onClick={analyze}
-              disabled={loading || !message.trim()}
+              disabled={loading || (!message.trim() && !file)}
             >
               {loading ? (
                 <span className={styles.loadingContent}>
@@ -221,7 +258,6 @@ Collez votre message ici
         )}
       </div>
 
-      {/* Trust badges */}
       <div className={styles.trust}>
         <div className={styles.trustItem}>
           <span className={styles.trustIcon}>🔒</span>
