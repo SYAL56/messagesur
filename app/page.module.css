@@ -509,3 +509,25 @@
   border-radius: 6px;
   border: 1px solid var(--cream-dark);
 }
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.navLink {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--mid-brown);
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 20px;
+  transition: all 0.15s;
+}
+
+.navLink:hover {
+  background: var(--cream-dark);
+  color: var(--warm-brown);
+}

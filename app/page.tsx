@@ -14,46 +14,16 @@ interface AnalysisResult {
 }
 
 const EXAMPLES = [
-  {
-    label: 'Faux Chronopost',
-    text: 'Votre colis n\'a pas pu être livré. Des frais de 2,99€ sont dus. Réglez maintenant : https://bit.ly/chr0no-paiement',
-  },
-  {
-    label: 'Faux Ameli',
-    text: 'AMELI : Votre carte vitale expire le 30/04. Mettez à jour vos informations : http://ameli-update.fr/validation',
-  },
-  {
-    label: 'Faux impôts',
-    text: 'DGFIP : Vous avez un remboursement de 187€ en attente. Cliquez ici pour recevoir votre virement : https://impots-remb.fr',
-  },
-  {
-    label: 'Message normal',
-    text: 'Bonjour, c\'est votre médecin Dr Dupont. Je confirme votre rendez-vous de demain mardi à 10h30. À bientôt.',
-  },
+  { label: 'Faux Chronopost', text: 'Votre colis n\'a pas pu être livré. Des frais de 2,99€ sont dus. Réglez maintenant : https://bit.ly/chr0no-paiement' },
+  { label: 'Faux Ameli', text: 'AMELI : Votre carte vitale expire le 30/04. Mettez à jour vos informations : http://ameli-update.fr/validation' },
+  { label: 'Faux impôts', text: 'DGFIP : Vous avez un remboursement de 187€ en attente. Cliquez ici : https://impots-remb.fr' },
+  { label: 'Message normal', text: 'Bonjour, c\'est votre médecin Dr Dupont. Je confirme votre rendez-vous de demain mardi à 10h30. À bientôt.' },
 ]
 
 const NIVEAU_CONFIG = {
-  danger: {
-    icon: '⚠️',
-    label: 'Message dangereux',
-    className: styles.resultDanger,
-    badgeClass: styles.badgeDanger,
-    iconClass: styles.iconDanger,
-  },
-  attention: {
-    icon: '🔎',
-    label: 'À vérifier',
-    className: styles.resultWarning,
-    badgeClass: styles.badgeWarning,
-    iconClass: styles.iconWarning,
-  },
-  safe: {
-    icon: '✓',
-    label: 'Message sûr',
-    className: styles.resultSafe,
-    badgeClass: styles.badgeSafe,
-    iconClass: styles.iconSafe,
-  },
+  danger: { icon: '⚠️', label: 'Message dangereux', className: styles.resultDanger, badgeClass: styles.badgeDanger, iconClass: styles.iconDanger },
+  attention: { icon: '🔎', label: 'À vérifier', className: styles.resultWarning, badgeClass: styles.badgeWarning, iconClass: styles.iconWarning },
+  safe: { icon: '✓', label: 'Message sûr', className: styles.resultSafe, badgeClass: styles.badgeSafe, iconClass: styles.iconSafe },
 }
 
 export default function Home() {
@@ -70,17 +40,12 @@ export default function Home() {
     setLoading(true)
     setResult(null)
     setError(null)
-
     try {
       const formData = new FormData()
       if (message) formData.append('message', message)
       if (sender) formData.append('sender', sender)
       if (file) formData.append('file', file)
-
-      const res = await fetch('/api/analyze', {
-        method: 'POST',
-        body: formData,
-      })
+      const res = await fetch('/api/analyze', { method: 'POST', body: formData })
       const data = await res.json()
       if (!res.ok) throw new Error(data.error || 'Erreur inconnue')
       setResult(data)
@@ -92,12 +57,7 @@ export default function Home() {
   }
 
   function reset() {
-    setMessage('')
-    setSender('')
-    setFile(null)
-    setPreview(null)
-    setResult(null)
-    setError(null)
+    setMessage(''); setSender(''); setFile(null); setPreview(null); setResult(null); setError(null)
   }
 
   const config = result ? NIVEAU_CONFIG[result.niveau] : null
@@ -112,73 +72,33 @@ export default function Home() {
             <path d="M11 16.5l3.5 3.5 6.5-7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </div>
-        <div>
+        <div style={{flex:1}}>
           <h1 className={styles.logoName}>MessageSûr</h1>
           <p className={styles.logoTagline}>Protection contre les arnaques numériques</p>
         </div>
+        <nav className={styles.nav}>
+          <a href="/blog" className={styles.navLink}>Blog</a>
+          <a href="/guide" className={styles.navLink}>Guide</a>
+        </nav>
       </header>
 
       <section className={styles.hero}>
-        <h2 className={styles.heroTitle}>
-          Ce message est-il<br />
-          <span className={styles.heroAccent}>une arnaque ?</span>
-        </h2>
-        <p className={styles.heroSub}>
-          Copiez votre SMS, email ou chargez une image/PDF suspect.<br />
-          Notre assistant vous répond en quelques secondes.
-        </p>
-        <a href="/guide" className={styles.guideBtn}>
-          Voir le guide d'utilisation →
-        </a>
+        <h2 className={styles.heroTitle}>Ce message est-il<br /><span className={styles.heroAccent}>une arnaque ?</span></h2>
+        <p className={styles.heroSub}>Copiez votre SMS, email ou chargez une image/PDF suspect.<br />Notre assistant vous répond en quelques secondes.</p>
+        <a href="/guide" className={styles.guideBtn}>Voir le guide d'utilisation →</a>
       </section>
 
       <div className={styles.card}>
         {!result ? (
           <>
-            <label className={styles.inputLabel} htmlFor="sender">
-              Expéditeur (optionnel)
-            </label>
-            <input
-              id="sender"
-              type="text"
-              className={styles.senderInput}
-              value={sender}
-              onChange={e => setSender(e.target.value)}
-              placeholder="Ex: 06 12 34 56 78 ou service@chronopost-fr.com"
-            />
-
-            <label className={styles.inputLabel} htmlFor="msg">
-              Collez votre message ici
-            </label>
-            <textarea
-              id="msg"
-              className={styles.textarea}
-              value={message}
-              onChange={e => setMessage(e.target.value)}
-              placeholder="« Votre colis n'a pas pu être livré... »"
-              rows={5}
-              maxLength={2000}
-            />
-
+            <label className={styles.inputLabel} htmlFor="sender">Expéditeur (optionnel)</label>
+            <input id="sender" type="text" className={styles.senderInput} value={sender} onChange={e => setSender(e.target.value)} placeholder="Ex: 06 12 34 56 78 ou service@chronopost-fr.com" />
+            <label className={styles.inputLabel} htmlFor="msg">Collez votre message ici</label>
+            <textarea id="msg" className={styles.textarea} value={message} onChange={e => setMessage(e.target.value)} placeholder="« Votre colis n'a pas pu être livré... »" rows={5} maxLength={2000} />
             <div className={styles.uploadZone}>
               <label htmlFor="fileUpload" className={styles.uploadLabel}>
                 📎 Ou charger une image / PDF
-                <input
-                  id="fileUpload"
-                  type="file"
-                  accept="image/jpeg,image/png,application/pdf"
-                  style={{ display: 'none' }}
-                  onChange={e => {
-                    const f = e.target.files?.[0] || null
-                    setFile(f)
-                    if (f && f.type.startsWith('image/')) {
-                      const url = URL.createObjectURL(f)
-                      setPreview(url)
-                    } else {
-                      setPreview(null)
-                    }
-                  }}
-                />
+                <input id="fileUpload" type="file" accept="image/jpeg,image/png,application/pdf" style={{display:'none'}} onChange={e => { const f = e.target.files?.[0] || null; setFile(f); if (f && f.type.startsWith('image/')) { setPreview(URL.createObjectURL(f)) } else { setPreview(null) } }} />
               </label>
               {file && (
                 <div className={styles.fileInfo}>
@@ -188,37 +108,17 @@ export default function Home() {
                 </div>
               )}
             </div>
-
             <div className={styles.examples}>
               <span className={styles.examplesLabel}>Exemples à tester :</span>
               <div className={styles.exampleBtns}>
                 {EXAMPLES.map(ex => (
-                  <button
-                    key={ex.label}
-                    className={styles.exampleBtn}
-                    onClick={() => setMessage(ex.text)}
-                  >
-                    {ex.label}
-                  </button>
+                  <button key={ex.label} className={styles.exampleBtn} onClick={() => setMessage(ex.text)}>{ex.label}</button>
                 ))}
               </div>
             </div>
-
             {error && <p className={styles.error}>{error}</p>}
-
-            <button
-              className={styles.analyzeBtn}
-              onClick={analyze}
-              disabled={loading || (!message.trim() && !file)}
-            >
-              {loading ? (
-                <span className={styles.loadingContent}>
-                  <span className={styles.spinner} />
-                  Analyse en cours…
-                </span>
-              ) : (
-                'Analyser ce message →'
-              )}
+            <button className={styles.analyzeBtn} onClick={analyze} disabled={loading || (!message.trim() && !file)}>
+              {loading ? <span className={styles.loadingContent}><span className={styles.spinner} />Analyse en cours…</span> : 'Analyser ce message →'}
             </button>
           </>
         ) : (
@@ -232,60 +132,38 @@ export default function Home() {
                 <h3 className={styles.resultTitle}>{result.titre}</h3>
               </div>
             </div>
-
             <p className={styles.resultExplication}>{result.explication}</p>
-
             {result.signaux && result.signaux.length > 0 && (
               <div className={styles.signaux}>
                 <p className={styles.signauxTitle}>Indices repérés :</p>
                 <ul className={styles.signauxList}>
-                  {result.signaux.map((s, i) => (
-                    <li key={i} className={styles.signalItem}>{s}</li>
-                  ))}
+                  {result.signaux.map((s, i) => <li key={i} className={styles.signalItem}>{s}</li>)}
                 </ul>
               </div>
             )}
-
             <div className={styles.conseil}>
               <span className={styles.conseilIcon}>→</span>
               <p>{result.conseil}</p>
             </div>
-
-            <button className={styles.resetBtn} onClick={reset}>
-              Analyser un autre message
-            </button>
+            <button className={styles.resetBtn} onClick={reset}>Analyser un autre message</button>
           </div>
         )}
       </div>
 
       <div className={styles.trust}>
-        <div className={styles.trustItem}>
-          <span className={styles.trustIcon}>🔒</span>
-          <span>Vos messages ne sont pas enregistrés</span>
-        </div>
-        <div className={styles.trustItem}>
-          <span className={styles.trustIcon}>🇫🇷</span>
-          <span>Service en français, hébergé en Europe</span>
-        </div>
-        <div className={styles.trustItem}>
-          <span className={styles.trustIcon}>👨‍👩‍👧</span>
-          <span>Partagez à vos proches pour les protéger</span>
-        </div>
+        <div className={styles.trustItem}><span className={styles.trustIcon}>🔒</span><span>Vos messages ne sont pas enregistrés</span></div>
+        <div className={styles.trustItem}><span className={styles.trustIcon}>🇫🇷</span><span>Service en français, hébergé en Europe</span></div>
+        <div className={styles.trustItem}><span className={styles.trustIcon}>👨‍👩‍👧</span><span>Partagez à vos proches pour les protéger</span></div>
       </div>
 
       <footer className={styles.footer}>
-        <p>© 2025 MessageSûr — Fait avec soin pour protéger nos aînés</p>
+        <p>© 2026 MessageSûr — Fait avec soin pour protéger nos aînés</p>
         <p className={styles.footerLinks}>
-          <a href="/blog">Blog</a>
-          <span>·</span>
-          <a href="/guide">Guide</a>
-          <span>·</span>
-          <a href="/about">À propos</a>
-          <span>·</span>
-          <a href="/confidentialite">Confidentialité</a>
-          <span>·</span>
-          <a href="/mentions-legales">Mentions légales</a>
-          <span>·</span>
+          <a href="/blog">Blog</a><span>·</span>
+          <a href="/guide">Guide</a><span>·</span>
+          <a href="/about">À propos</a><span>·</span>
+          <a href="/confidentialite">Confidentialité</a><span>·</span>
+          <a href="/mentions-legales">Mentions légales</a><span>·</span>
           <a href="https://mail.google.com/mail/?view=cm&to=messagesur.bzh@gmail.com">Contact</a>
         </p>
       </footer>
