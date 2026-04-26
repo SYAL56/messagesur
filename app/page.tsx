@@ -82,7 +82,7 @@ export default function Home() {
       </header>
 
       <section className={styles.hero}>
-        <h2 className={styles.heroTitle}>Ce message est-il<br /><span className={styles.heroAccent}>une arnaque ?</span></h2>
+        <h2 className={styles.heroTitle}>Est-ce<br /><span className={styles.heroAccent}>une arnaque ?</span></h2>
         <p className={styles.heroSub}>Copiez votre SMS, email ou chargez une image/PDF suspect.<br />Notre assistant vous répond en quelques secondes.</p>
         <a href="/guide" className={styles.guideBtn}>Comment utiliser MessageSûr →</a>
         <br />
