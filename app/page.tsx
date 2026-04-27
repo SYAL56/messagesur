@@ -160,8 +160,8 @@ export default function Home() {
       <footer className={styles.footer}>
         <p>© 2026 MessageSûr — Fait avec soin pour protéger nos aînés</p>
         <p className={styles.footerLinks}>
-          <a href="/blog">Blog</a><span>·</span>
-          <a href="/guide">Guide</a><span>·</span>
+          
+          
           <a href="/about">À propos</a><span>·</span>
           <a href="/confidentialite">Confidentialité</a><span>·</span>
           <a href="/mentions-legales">Mentions légales</a><span>·</span>
