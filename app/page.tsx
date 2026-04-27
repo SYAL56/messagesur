@@ -120,7 +120,8 @@ export default function Home() {
             <label className={styles.inputLabel} htmlFor="sender">Expéditeur (optionnel)</label>
             <input id="sender" type="text" className={styles.senderInput} value={sender} onChange={e => setSender(e.target.value)} placeholder="Ex: 06 12 34 56 78 ou service@chronopost-fr.com" />
             <label className={styles.inputLabel} htmlFor="msg">Collez votre message ici</label>
-            <textarea id="msg" className={styles.textarea} value={message} onChange={e => setMessage(e.target.value)} placeholder="« Votre colis n'a pas pu être livré... »" rows={5} maxLength={2000} />
+            <textarea id="msg" className={styles.textarea} value={message} onChange={e => setMessage(e.target.value)} placeholder="« Votre colis n'a pas pu être livré... »
+ou laissez vide pour tester un numéro ou une adresse email" rows={5} maxLength={2000} />
             <div className={styles.uploadZone}>
               <label htmlFor="fileUpload" className={styles.uploadLabel}>
                 📎 Ou charger une image / PDF
