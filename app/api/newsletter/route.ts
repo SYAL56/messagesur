@@ -10,25 +10,28 @@ export async function POST(req: NextRequest) {
       headers: {
         'api-key': process.env.BREVO_API_KEY || '',
         'Content-Type': 'application/json',
+        'Accept': 'application/json',
       },
       body: JSON.stringify({
         email,
-        listIds: [2],
         updateEnabled: true,
       }),
     })
 
-    if (res.ok || res.status === 204) {
+    const data = await res.json().catch(() => null)
+
+    if (res.ok || res.status === 201) {
       return NextResponse.json({ success: true })
     }
 
-    const data = await res.json()
-    if (data.code === 'duplicate_parameter') {
+    if (data?.code === 'duplicate_parameter') {
       return NextResponse.json({ success: true, message: 'Déjà inscrit' })
     }
 
+    console.error('Brevo error:', res.status, data)
     return NextResponse.json({ error: 'Erreur inscription' }, { status: 500 })
   } catch (error) {
+    console.error('Server error:', error)
     return NextResponse.json({ error: 'Erreur serveur' }, { status: 500 })
   }
 }
