@@ -38,7 +38,7 @@ export default function Home() {
   const [nlStatus, setNlStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
 
   async function analyze() {
-    if (!message.trim() && !file) return
+    if (!message.trim() && !file && !sender.trim()) return
     setLoading(true)
     setResult(null)
     setError(null)
@@ -143,7 +143,7 @@ export default function Home() {
               </div>
             </div>
             {error && <p className={styles.error}>{error}</p>}
-            <button className={styles.analyzeBtn} onClick={analyze} disabled={loading || (!message.trim() && !file)}>
+            <button className={styles.analyzeBtn} onClick={analyze} disabled={loading || (!message.trim() && !file && !sender.trim())}>
               {loading ? <span className={styles.loadingContent}><span className={styles.spinner} />Analyse en cours…</span> : 'Analyser ce message →'}
             </button>
           </>

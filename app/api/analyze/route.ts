@@ -49,7 +49,7 @@ export async function POST(req: NextRequest) {
     const sender = formData.get('sender') as string
     const file = formData.get('file') as File | null
 
-    if (!message && !file) {
+    if (!message && !file && !sender) {
       return NextResponse.json({ error: 'Contenu manquant' }, { status: 400 })
     }
 
@@ -84,7 +84,7 @@ export async function POST(req: NextRequest) {
         ]
       }
     } else {
-      content = `Analyse ce message reçu${sender ? ` de l'expéditeur "${sender}"` : ''} : "${message}"`
+      content = message ? `Analyse ce message reçu${sender ? ` de l'expéditeur "${sender}"` : ''} : "${message}"` : `Analyse cet expéditeur : "${sender}". Est-ce un numéro ou email fiable ? Donne des informations sur ce numéro/email.``
     }
 
     const response = await client.messages.create({
