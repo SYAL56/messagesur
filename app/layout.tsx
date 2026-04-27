@@ -16,11 +16,22 @@ const dmSerif = DM_Serif_Display({
 })
 
 export const metadata: Metadata = {
-  title: 'MessageSûr — Détectez les arnaques numériques en quelques secondes',
-  description: 'Analysez vos SMS et emails suspects en un clic. Protégez vos proches des arnaques numériques.',
-  keywords: 'arnaque, phishing, SMS, email, protection, sécurité',
+  title: {
+    default: 'MessageSûr — Détectez les arnaques SMS, email et courrier',
+    template: '%s | MessageSûr',
+  },
+  description: 'Analysez gratuitement vos SMS, emails et documents suspects en quelques secondes. Protégez vos proches des arnaques numériques.',
+  keywords: 'arnaque, phishing, SMS frauduleux, email suspect, faux Chronopost, faux Ameli, protection, sécurité numérique, seniors',
   verification: {
     google: '5Bss1vjj9StBapP-pOrTaUnG_XcXuO1QuywO0nMeXwE',
+  },
+  openGraph: {
+    title: 'MessageSûr — Détectez les arnaques en quelques secondes',
+    description: 'Copiez-collez un message suspect ou chargez une image. Notre IA vous dit si c\'est une arnaque.',
+    url: 'https://www.messagesur.bzh',
+    siteName: 'MessageSûr',
+    locale: 'fr_FR',
+    type: 'website',
   },
 }
 
