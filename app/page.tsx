@@ -157,6 +157,16 @@ export default function Home() {
         <div className={styles.trustItem}><span className={styles.trustIcon}>👨‍👩‍👧</span><span>Partagez à vos proches pour les protéger</span></div>
       </div>
 
+      <div className={styles.newsletter}>
+        <p className={styles.newsletterTitle}>🔔 Recevez nos alertes arnaques</p>
+        <p className={styles.newsletterDesc}>Chaque semaine, nos conseils pour vous protéger. Gratuit, sans spam.</p>
+        <form className={styles.newsletterForm} onSubmit={async (e) => { e.preventDefault(); const input = (e.target as HTMLFormElement).querySelector("input") as HTMLInputElement; const btn = (e.target as HTMLFormElement).querySelector("button") as HTMLButtonElement; const msg = document.getElementById("nl-msg"); if (!input.value) return; btn.disabled = true; btn.textContent = "..."; try { const res = await fetch("/api/newsletter", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ email: input.value }) }); if (res.ok) { if (msg) { msg.textContent = "✅ Inscrit ! Vous recevrez nos prochaines alertes."; msg.style.color = "#1B5E20"; } input.value = ""; } else { if (msg) { msg.textContent = "❌ Erreur, veuillez réessayer."; msg.style.color = "#7F0000"; } } } catch { if (msg) { msg.textContent = "❌ Erreur, veuillez réessayer."; msg.style.color = "#7F0000"; } } btn.disabled = false; btn.textContent = "S\x27inscrire"; }}>
+          <input type="email" placeholder="Votre adresse email" required className={styles.newsletterInput} />
+          <button type="submit" className={styles.newsletterBtn}>S<footer className={styles.footer}>apos;inscrire</button>
+        </form>
+        <p id="nl-msg" className={styles.newsletterMsg}></p>
+      </div>
+
       <footer className={styles.footer}>
         <p>© 2026 MessageSûr — Fait avec soin pour protéger nos aînés</p>
         <p className={styles.footerLinks}>
