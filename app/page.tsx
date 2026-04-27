@@ -17,6 +17,7 @@ const EXAMPLES = [
   { label: 'Faux Chronopost', text: "Votre colis n'a pas pu être livré. Des frais de 2,99€ sont dus. Réglez maintenant : https://bit.ly/chr0no-paiement" },
   { label: 'Faux Ameli', text: "AMELI : Votre carte vitale expire le 30/04. Mettez à jour vos informations : http://ameli-update.fr/validation" },
   { label: 'Faux impôts', text: "DGFIP : Vous avez un remboursement de 187€ en attente. Cliquez ici : https://impots-remb.fr" },
+  { label: 'Appel suspect', text: "J'ai reçu un appel du 0899 23 45 67, pas de message vocal. Est-ce une arnaque ?" },
   { label: 'Message normal', text: "Bonjour, c'est votre médecin Dr Dupont. Je confirme votre rendez-vous de demain mardi à 10h30. À bientôt." },
 ]
 
