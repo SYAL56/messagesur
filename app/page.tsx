@@ -110,7 +110,7 @@ export default function Home() {
               )}
             </div>
             <div className={styles.examples}>
-              <span className={styles.examplesLabel}>Exemples à tester :</span>
+              <span className={styles.examplesLabel}>Pas de message sous la main ? Essayez un exemple :</span>
               <div className={styles.exampleBtns}>
                 {EXAMPLES.map(ex => (
                   <button key={ex.label} className={styles.exampleBtn} onClick={() => setMessage(ex.text)}>{ex.label}</button>
