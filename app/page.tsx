@@ -14,10 +14,10 @@ interface AnalysisResult {
 }
 
 const EXAMPLES = [
-  { label: 'Faux Chronopost', text: 'Votre colis n\'a pas pu être livré. Des frais de 2,99€ sont dus. Réglez maintenant : https://bit.ly/chr0no-paiement' },
-  { label: 'Faux Ameli', text: 'AMELI : Votre carte vitale expire le 30/04. Mettez à jour vos informations : http://ameli-update.fr/validation' },
-  { label: 'Faux impôts', text: 'DGFIP : Vous avez un remboursement de 187€ en attente. Cliquez ici : https://impots-remb.fr' },
-  { label: 'Message normal', text: 'Bonjour, c\'est votre médecin Dr Dupont. Je confirme votre rendez-vous de demain mardi à 10h30. À bientôt.' },
+  { label: 'Faux Chronopost', text: "Votre colis n'a pas pu être livré. Des frais de 2,99€ sont dus. Réglez maintenant : https://bit.ly/chr0no-paiement" },
+  { label: 'Faux Ameli', text: "AMELI : Votre carte vitale expire le 30/04. Mettez à jour vos informations : http://ameli-update.fr/validation" },
+  { label: 'Faux impôts', text: "DGFIP : Vous avez un remboursement de 187€ en attente. Cliquez ici : https://impots-remb.fr" },
+  { label: 'Message normal', text: "Bonjour, c'est votre médecin Dr Dupont. Je confirme votre rendez-vous de demain mardi à 10h30. À bientôt." },
 ]
 
 const NIVEAU_CONFIG = {
@@ -34,6 +34,7 @@ export default function Home() {
   const [loading, setLoading] = useState(false)
   const [result, setResult] = useState<AnalysisResult | null>(null)
   const [error, setError] = useState<string | null>(null)
+  const [nlStatus, setNlStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
 
   async function analyze() {
     if (!message.trim() && !file) return
@@ -60,6 +61,29 @@ export default function Home() {
     setMessage(''); setSender(''); setFile(null); setPreview(null); setResult(null); setError(null)
   }
 
+  async function handleNewsletter(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    const form = e.target as HTMLFormElement
+    const input = form.querySelector('input') as HTMLInputElement
+    if (!input.value) return
+    setNlStatus('loading')
+    try {
+      const res = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: input.value }),
+      })
+      if (res.ok) {
+        setNlStatus('success')
+        input.value = ''
+      } else {
+        setNlStatus('error')
+      }
+    } catch {
+      setNlStatus('error')
+    }
+  }
+
   const config = result ? NIVEAU_CONFIG[result.niveau] : null
 
   return (
@@ -77,7 +101,7 @@ export default function Home() {
           <p className={styles.logoTagline}>Protection contre les arnaques numériques</p>
         </div>
         <nav className={styles.nav}>
-          
+          <a href="/blog" className={styles.navLink}>Nos guides et conseils</a>
         </nav>
       </header>
 
@@ -160,18 +184,21 @@ export default function Home() {
       <div className={styles.newsletter}>
         <p className={styles.newsletterTitle}>🔔 Recevez nos alertes arnaques</p>
         <p className={styles.newsletterDesc}>Chaque semaine, nos conseils pour vous protéger. Gratuit, sans spam.</p>
-        <form className={styles.newsletterForm} onSubmit={async (e) => { e.preventDefault(); const input = (e.target as HTMLFormElement).querySelector("input") as HTMLInputElement; const btn = (e.target as HTMLFormElement).querySelector("button") as HTMLButtonElement; const msg = document.getElementById("nl-msg"); if (!input.value) return; btn.disabled = true; btn.textContent = "..."; try { const res = await fetch("/api/newsletter", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ email: input.value }) }); if (res.ok) { if (msg) { msg.textContent = "✅ Inscrit ! Vous recevrez nos prochaines alertes."; msg.style.color = "#1B5E20"; } input.value = ""; } else { if (msg) { msg.textContent = "❌ Erreur, veuillez réessayer."; msg.style.color = "#7F0000"; } } } catch { if (msg) { msg.textContent = "❌ Erreur, veuillez réessayer."; msg.style.color = "#7F0000"; } } btn.disabled = false; btn.textContent = "S\x27inscrire"; }}>
+        <form className={styles.newsletterForm} onSubmit={handleNewsletter}>
           <input type="email" placeholder="Votre adresse email" required className={styles.newsletterInput} />
-          <button type="submit" className={styles.newsletterBtn}>S<footer className={styles.footer}>apos;inscrire</button>
+          <button type="submit" className={styles.newsletterBtn} disabled={nlStatus === 'loading'}>
+            {nlStatus === 'loading' ? '...' : "S'inscrire"}
+          </button>
         </form>
-        <p id="nl-msg" className={styles.newsletterMsg}></p>
+        <p className={styles.newsletterMsg}>
+          {nlStatus === 'success' && '✅ Inscrit ! Vous recevrez nos prochaines alertes.'}
+          {nlStatus === 'error' && '❌ Erreur, veuillez réessayer.'}
+        </p>
       </div>
 
       <footer className={styles.footer}>
         <p>© 2026 MessageSûr — Fait avec soin pour protéger nos aînés</p>
         <p className={styles.footerLinks}>
-          
-          
           <a href="/about">À propos</a><span>·</span>
           <a href="/confidentialite">Confidentialité</a><span>·</span>
           <a href="/mentions-legales">Mentions légales</a><span>·</span>
