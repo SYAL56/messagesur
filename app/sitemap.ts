@@ -6,6 +6,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: 'https://www.messagesur.bzh/blog', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
     { url: 'https://www.messagesur.bzh/blog/chronopost', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: 'https://www.messagesur.bzh/blog/ameli', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://www.messagesur.bzh/blog/faux-pv', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: 'https://www.messagesur.bzh/blog/clic-suspect', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: 'https://www.messagesur.bzh/about', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
     { url: 'https://www.messagesur.bzh/guide', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },

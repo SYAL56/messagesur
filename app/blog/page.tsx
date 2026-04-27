@@ -2,6 +2,13 @@ import Link from 'next/link'
 
 const articles = [
   {
+    slug: 'faux-pv',
+    titre: "Faux SMS d'amende : l'arnaque au PV qui explose en 2026",
+    resume: "L'ANTAI n'envoie jamais de SMS. Voici comment reconnaître cette arnaque et quoi faire.",
+    date: '27 avril 2026',
+    emoji: '🚗',
+  },
+  {
     slug: 'chronopost',
     titre: 'Faux SMS Chronopost : comment reconnaître l\'arnaque ?',
     resume: 'Ces messages vous demandent de payer des frais de livraison. Avant de cliquer, découvrez les 5 signes qui ne trompent pas.',
