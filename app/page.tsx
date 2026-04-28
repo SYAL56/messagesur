@@ -102,7 +102,7 @@ export default function Home() {
           <p className={styles.logoTagline}>Protection contre les arnaques numériques</p>
         </div>
         <nav className={styles.nav}>
-          <a href="/blog" className={styles.navLink}>Nos guides et conseils</a>
+          
         </nav>
       </header>
 
