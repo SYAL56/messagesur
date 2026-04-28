@@ -77,7 +77,7 @@ export default function About() {
           </div>
           <div className={styles.guarantee}>
             <span className={styles.guaranteeIcon}>🇫🇷</span>
-            <p>Service hébergé en <strong>Europe</strong>, conforme au RGPD</p>
+            <p>Service conforme au <strong>RGPD</strong>, vos messages ne sont jamais conservés</p>
           </div>
           <div className={styles.guarantee}>
             <span className={styles.guaranteeIcon}>🚫</span>

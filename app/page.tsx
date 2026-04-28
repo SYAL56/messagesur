@@ -179,7 +179,7 @@ ou laissez vide pour tester un numéro ou une adresse email" rows={5} maxLength=
 
       <div className={styles.trust}>
         <div className={styles.trustItem}><span className={styles.trustIcon}>🔒</span><span>Vos messages ne sont pas enregistrés</span></div>
-        <div className={styles.trustItem}><span className={styles.trustIcon}>🇫🇷</span><span>Service en français, hébergé en Europe</span></div>
+        <div className={styles.trustItem}><span className={styles.trustIcon}>🇫🇷</span><span>Service en français, données non conservées</span></div>
         <div className={styles.trustItem}><span className={styles.trustIcon}>👨‍👩‍👧</span><span>Partagez à vos proches pour les protéger</span></div>
       </div>
 
