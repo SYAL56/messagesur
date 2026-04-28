@@ -557,6 +557,7 @@
 
 .newsletterForm {
   display: flex;
+  flex-direction: column;
   gap: 8px;
   max-width: 400px;
   margin: 0 auto;
