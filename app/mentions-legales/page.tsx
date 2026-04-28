@@ -7,7 +7,7 @@ export default function MentionsLegales() {
       <h2 style={{fontSize:'1.1rem',fontWeight:500,margin:'1.5rem 0 0.5rem'}}>Éditeur du site</h2>
       <p style={{color:'var(--mid-brown)',lineHeight:1.7,marginBottom:'1rem'}}>Sylvain Albor<br/>Auto-entrepreneur<br/>Bretagne, France<br/>Email : messagesur.bzh@gmail.com</p>
       <h2 style={{fontSize:'1.1rem',fontWeight:500,margin:'1.5rem 0 0.5rem'}}>Hébergement</h2>
-      <p style={{color:'var(--mid-brown)',lineHeight:1.7,marginBottom:'1rem'}}>Vercel Inc.<br/>340 Pine Street, Suite 701<br/>San Francisco, CA 94104, USA</p>
+      <p style={{color:'var(--mid-brown)',lineHeight:1.7,marginBottom:'1rem'}}>Vercel Inc.<br/>340 Pine Street, Suite 701<br/>San Francisco, CA 94104, USA<br/>Données servies depuis le réseau européen (CDN Paris)</p>
       <h2 style={{fontSize:'1.1rem',fontWeight:500,margin:'1.5rem 0 0.5rem'}}>Propriété intellectuelle</h2>
       <p style={{color:'var(--mid-brown)',lineHeight:1.7,marginBottom:'1rem'}}>L'ensemble du contenu de ce site est protégé par le droit d'auteur. Toute reproduction est interdite sans autorisation préalable.</p>
       <h2 style={{fontSize:'1.1rem',fontWeight:500,margin:'1.5rem 0 0.5rem'}}>Responsabilité</h2>
