@@ -193,6 +193,24 @@ ou laissez vide pour tester un numéro ou une adresse email" rows={5} maxLength=
         <div className={styles.trustItem}><span className={styles.trustIcon}>👨‍👩‍👧</span><span>Partagez à vos proches pour les protéger</span></div>
       </div>
 
+      <div className={styles.partners}>
+        <p className={styles.partnersTitle}>Plateformes officielles de signalement</p>
+        <div className={styles.partnersGrid}>
+          <a href="https://www.33700.fr" target="_blank" rel="noopener noreferrer" className={styles.partnerLink}>
+            <span className={styles.partnerIcon}>📱</span>
+            <span>33700.fr</span>
+          </a>
+          <a href="https://www.cybermalveillance.gouv.fr" target="_blank" rel="noopener noreferrer" className={styles.partnerLink}>
+            <span className={styles.partnerIcon}>🛡️</span>
+            <span>Cybermalveillance</span>
+          </a>
+          <a href="https://phishing-initiative.eu" target="_blank" rel="noopener noreferrer" className={styles.partnerLink}>
+            <span className={styles.partnerIcon}>🔗</span>
+            <span>Phishing Initiative</span>
+          </a>
+        </div>
+      </div>
+
       <div className={styles.newsletter}>
         <p className={styles.newsletterTitle}>🔔 Recevez nos alertes arnaques</p>
         <p className={styles.newsletterDesc}>Chaque semaine, nos conseils pour vous protéger. Gratuit, sans spam.</p>

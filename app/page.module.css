@@ -628,3 +628,52 @@
 .signalementLink:hover {
   background: #FDECEA;
 }
+
+.partners {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  padding: 1.25rem;
+  background: white;
+  border-radius: 22px;
+  border: 1px solid var(--cream-dark);
+  box-shadow: 0 2px 20px rgba(44, 24, 16, 0.06);
+}
+
+.partnersTitle {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--light-brown);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+}
+
+.partnersGrid {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.partnerLink {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--cream-dark);
+  text-decoration: none;
+  color: var(--mid-brown);
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.15s;
+}
+
+.partnerLink:hover {
+  background: var(--cream);
+  border-color: var(--light-brown);
+}
+
+.partnerIcon {
+  font-size: 1.1rem;
+}
