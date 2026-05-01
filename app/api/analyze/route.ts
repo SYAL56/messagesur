@@ -20,6 +20,17 @@ Pour les ADRESSES EMAIL, vérifie :
 - Les caractères trompeurs : 0 au lieu de O, l au lieu de I
 - Les sous-domaines trompeurs : ameli.update-info.com (faux)
 
+DOMAINES LEGITIMES CONNUS (ne pas signaler comme frauduleux) :
+- my.dpd.fr, dpd.fr = DPD transporteur officiel
+- chronopost.fr = Chronopost officiel
+- colissimo.fr, laposte.fr = La Poste officiel
+- mondialrelay.fr = Mondial Relay officiel
+- ups.com, dhl.com, fedex.com = transporteurs internationaux
+- ameli.fr = Assurance Maladie officiel
+- impots.gouv.fr, amendes.gouv.fr = sites gouvernementaux
+- signal.conso.gouv.fr, cybermalveillance.gouv.fr = sites officiels
+Les numeros dans les URLs de ces domaines sont des numeros de colis ou de suivi, PAS des numeros de telephone.
+
 Pour les URLS dans les messages :
 - Vérifie si le domaine est officiel (.gouv.fr, .ameli.fr, .chronopost.fr...)
 - Les raccourcisseurs (bit.ly, tinyurl...) dans des messages officiels = très suspect
