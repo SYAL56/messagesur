@@ -172,6 +172,16 @@ ou laissez vide pour tester un numéro ou une adresse email" rows={5} maxLength=
               <span className={styles.conseilIcon}>→</span>
               <p>{result.conseil}</p>
             </div>
+            { result.niveau === 'danger' && (
+              <div className={styles.signalement}>
+                <p className={styles.signauxTitle}>Signaler cette arnaque :</p>
+                <div className={styles.signalementLinks}>
+                  <a href="https://www.33700.fr/" target="_blank" rel="noopener noreferrer" className={styles.signalementLink}>SMS → Signaler au 33700</a>
+                  <a href="https://www.signal-spam.fr/" target="_blank" rel="noopener noreferrer" className={styles.signalementLink}>Email → Signal Spam</a>
+                  <a href="https://phishing-initiative.eu/contrib/" target="_blank" rel="noopener noreferrer" className={styles.signalementLink}>Site web → Phishing Initiative</a>
+                </div>
+              </div>
+            )}
             <button className={styles.resetBtn} onClick={reset}>Analyser un autre message</button>
           </div>
         )}

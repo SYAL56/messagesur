@@ -596,3 +596,35 @@
   margin-top: 0.5rem;
   min-height: 1.2rem;
 }
+
+.signalement {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: rgba(127, 0, 0, 0.05);
+  border-radius: 14px;
+  border: 1px solid rgba(127, 0, 0, 0.1);
+}
+
+.signalementLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 0.5rem;
+}
+
+.signalementLink {
+  display: block;
+  padding: 0.6rem 1rem;
+  background: white;
+  border-radius: 10px;
+  border: 1px solid rgba(127, 0, 0, 0.15);
+  color: #7F0000;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.15s;
+}
+
+.signalementLink:hover {
+  background: #FDECEA;
+}
