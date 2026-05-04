@@ -677,3 +677,31 @@
 .partnerIcon {
   font-size: 1.1rem;
 }
+
+.shareButtons {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.shareBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid var(--cream-dark);
+  background: white;
+  color: var(--mid-brown);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.15s;
+}
+
+.shareBtn:hover {
+  background: var(--cream);
+  border-color: var(--light-brown);
+}

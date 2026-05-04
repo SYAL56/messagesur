@@ -190,7 +190,13 @@ ou laissez vide pour tester un numéro ou une adresse email" rows={5} maxLength=
       <div className={styles.trust}>
         <div className={styles.trustItem}><span className={styles.trustIcon}>🔒</span><span>Vos messages ne sont pas enregistrés</span></div>
         <div className={styles.trustItem}><span className={styles.trustIcon}>🇫🇷</span><span>Service en français, données non conservées</span></div>
-        <div className={styles.trustItem}><span className={styles.trustIcon}>👨‍👩‍👧</span><span>Partagez à vos proches pour les protéger</span></div>
+        <div className={styles.trustItem}><span className={styles.trustIcon}>👨‍👩‍👧</span><span>Partagez avec vos proches pour les protéger</span></div>
+        <div className={styles.shareButtons}>
+          <a href="sms:?body=Un site utile pour vérifier les SMS et emails suspects : https://www.messagesur.bzh" className={styles.shareBtn}>📱 SMS</a>
+          <a href="mailto:?subject=Un site utile contre les arnaques&body=Bonjour, je te recommande ce site pour vérifier les SMS et emails suspects : https://www.messagesur.bzh" className={styles.shareBtn}>📧 Email</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.messagesur.bzh" target="_blank" rel="noopener noreferrer" className={styles.shareBtn}>📘 Facebook</a>
+          <a href="https://api.whatsapp.com/send?text=Un site utile pour vérifier les SMS et emails suspects : https://www.messagesur.bzh" target="_blank" rel="noopener noreferrer" className={styles.shareBtn}>💬 WhatsApp</a>
+        </div>
       </div>
 
       <div className={styles.partners}>
