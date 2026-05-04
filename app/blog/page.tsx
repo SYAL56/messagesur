@@ -2,6 +2,13 @@ import Link from 'next/link'
 
 const articles = [
   {
+    slug: 'impots',
+    titre: "Arnaque aux impôts par SMS : comment la reconnaître ?",
+    resume: "Les impôts ne vous contactent jamais par SMS. Voici comment repérer ces arnaques et quoi faire.",
+    date: '4 mai 2026',
+    emoji: '🏛️',
+  },
+  {
     slug: 'faux-pv',
     titre: "Faux SMS d'amende : l'arnaque au PV qui explose en 2026",
     resume: "L'ANTAI n'envoie jamais de SMS. Voici comment reconnaître cette arnaque et quoi faire.",
