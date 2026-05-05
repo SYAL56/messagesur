@@ -641,11 +641,12 @@
 }
 
 .partnersTitle {
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: var(--light-brown);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: #1565C0;
+  text-transform: none;
+  letter-spacing: normal;
   margin-bottom: 1rem;
 }
 
