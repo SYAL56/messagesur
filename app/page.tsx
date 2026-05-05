@@ -190,7 +190,7 @@ ou laissez vide pour tester un numéro ou une adresse email" rows={5} maxLength=
       <div className={styles.trust}>
         <div className={styles.trustItem}><span className={styles.trustIcon}>🔒</span><span>Vos messages ne sont pas enregistrés</span></div>
         <div className={styles.trustItem}><span className={styles.trustIcon}>🇫🇷</span><span>Service en français, données non conservées</span></div>
-        <div className={styles.trustItem}><span className={styles.trustIcon}>👨‍👩‍👧</span><span>Partagez avec vos proches pour les protéger</span></div>
+        <div className={styles.trustItem}><span className={styles.trustIcon}>👨‍👩‍👧</span><span>Partagez cette application</span></div>
         <div className={styles.shareButtons}>
           <a href="sms:?body=Un site utile pour vérifier les SMS et emails suspects : https://www.messagesur.bzh" className={styles.shareBtn}>📱 SMS</a>
           <a href="mailto:?subject=Un site utile contre les arnaques&body=Bonjour, je te recommande ce site pour vérifier les SMS et emails suspects : https://www.messagesur.bzh" className={styles.shareBtn}>📧 Email</a>
