@@ -236,7 +236,7 @@ ou laissez vide pour tester un numéro ou une adresse email" rows={5} maxLength=
       </div>
 
       <footer className={styles.footer}>
-        <p>© 2026 MessageSûr — Fait avec soin pour protéger nos aînés</p>
+        <p>© 2026 MessageSûr — Fait avec soin pour vous protéger</p>
         <p className={styles.footerLinks}>
           <a href="/about">À propos</a><span>·</span>
           <a href="/confidentialite">Confidentialité</a><span>·</span>
