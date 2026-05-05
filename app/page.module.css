@@ -65,7 +65,7 @@
 }
 
 .heroSub {
-  font-size: 1rem;
+  font-size: 1.1rem;
   color: var(--mid-brown);
   line-height: 1.65;
 }
@@ -392,7 +392,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 1rem;
+  font-size: 1.1rem;
   color: var(--mid-brown);
 }
 
@@ -705,4 +705,21 @@
 .shareBtn:hover {
   background: var(--cream);
   border-color: var(--light-brown);
+}
+
+.shareBox {
+  background: white;
+  border-radius: 22px;
+  border: 1.5px solid #90CAF9;
+  padding: 1.25rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.shareTitle {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: #1565C0;
+  margin-bottom: 0.75rem;
 }
