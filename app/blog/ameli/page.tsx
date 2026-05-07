@@ -1,4 +1,16 @@
 import Link from 'next/link'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Arnaque Ameli : faux emails et SMS de l\'Assurance Maladie',
+  description: 'Comment reconnaître un faux email ou SMS Ameli ? Les techniques des escrocs et les réflexes pour se protéger.',
+  openGraph: {
+    title: 'Arnaque Ameli : faux emails et SMS de l\'Assurance Maladie',
+    description: 'Comment reconnaître un faux email ou SMS Ameli et se protéger.',
+    url: 'https://www.messagesur.bzh/blog/ameli',
+  },
+  alternates: { canonical: '/blog/ameli' },
+}
 
 export default function ArticleAmeli() {
   return (

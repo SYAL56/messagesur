@@ -1,4 +1,16 @@
 import Link from 'next/link'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'J\'ai cliqué sur un lien suspect : que faire ?',
+  description: 'Vous avez cliqué sur un lien douteux par erreur ? Voici les étapes à suivre immédiatement pour limiter les dégâts.',
+  openGraph: {
+    title: 'J\'ai cliqué sur un lien suspect : que faire ?',
+    description: 'Les réflexes à avoir immédiatement après avoir cliqué sur un lien suspect.',
+    url: 'https://www.messagesur.bzh/blog/clic-suspect',
+  },
+  alternates: { canonical: '/blog/clic-suspect' },
+}
 
 export default function ArticleClicSuspect() {
   return (

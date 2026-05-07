@@ -1,4 +1,16 @@
 import Link from 'next/link'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Faux PV et fausses amendes : reconnaître l\'arnaque',
+  description: 'Vous avez reçu un email ou SMS de contravention à payer ? C\'est probablement une arnaque. Voici comment la détecter.',
+  openGraph: {
+    title: 'Faux PV et fausses amendes : reconnaître l\'arnaque',
+    description: 'Comment repérer les faux PV et fausses amendes envoyés par email ou SMS.',
+    url: 'https://www.messagesur.bzh/blog/faux-pv',
+  },
+  alternates: { canonical: '/blog/faux-pv' },
+}
 
 export default function ArticleFauxPV() {
   return (

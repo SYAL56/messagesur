@@ -1,4 +1,16 @@
 import Link from 'next/link'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Arnaque aux impôts : faux remboursement et faux PV',
+  description: 'Apprenez à repérer les faux emails et SMS des impôts qui promettent un remboursement. Les signes d\'arnaque et que faire.',
+  openGraph: {
+    title: 'Arnaque aux impôts : faux remboursement et faux PV',
+    description: 'Comment reconnaître les faux messages des impôts et se protéger.',
+    url: 'https://www.messagesur.bzh/blog/impots',
+  },
+  alternates: { canonical: '/blog/impots' },
+}
 
 export default function ArticleImpots() {
   return (

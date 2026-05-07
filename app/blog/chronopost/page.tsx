@@ -1,4 +1,16 @@
 import Link from 'next/link'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Faux SMS Chronopost : comment reconnaître l\'arnaque ?',
+  description: 'Apprenez à reconnaître les faux SMS Chronopost qui vous demandent de payer des frais de livraison. Les 5 signes pour détecter l\'arnaque.',
+  openGraph: {
+    title: 'Faux SMS Chronopost : comment reconnaître l\'arnaque ?',
+    description: 'Les 5 signes pour repérer un faux SMS Chronopost et les bons réflexes à adopter.',
+    url: 'https://www.messagesur.bzh/blog/chronopost',
+  },
+  alternates: { canonical: '/blog/chronopost' },
+}
 
 export default function ArticleChronopost() {
   return (
