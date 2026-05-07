@@ -42,20 +42,38 @@ export default function Home() {
     setLoading(true)
     setResult(null)
     setError(null)
-    try {
-      const formData = new FormData()
-      if (message) formData.append('message', message)
-      if (sender) formData.append('sender', sender)
-      if (file) formData.append('file', file)
-      const res = await fetch('/api/analyze', { method: 'POST', body: formData })
-      const data = await res.json()
-      if (!res.ok) throw new Error(data.error || 'Erreur inconnue')
-      setResult(data)
-    } catch (e: unknown) {
-      setError(e instanceof Error ? e.message : 'Une erreur est survenue')
-    } finally {
-      setLoading(false)
+
+    const formData = new FormData()
+    if (message) formData.append('message', message)
+    if (sender) formData.append('sender', sender)
+    if (file) formData.append('file', file)
+
+    const MAX_CLIENT_RETRIES = 2
+    for (let attempt = 0; attempt <= MAX_CLIENT_RETRIES; attempt++) {
+      try {
+        const res = await fetch('/api/analyze', { method: 'POST', body: formData })
+        const data = await res.json()
+
+        if (res.status === 503 && attempt < MAX_CLIENT_RETRIES) {
+          const wait = (attempt + 1) * 5
+          setError('⏳ Beaucoup de monde utilise le service. Nouvelle tentative dans ' + wait + 's, patientez...')
+          await new Promise(resolve => setTimeout(resolve, wait * 1000))
+          setError(null)
+          continue
+        }
+
+        if (!res.ok) throw new Error(data.message || data.error || 'Erreur inconnue')
+        setResult(data)
+        setError(null)
+        setLoading(false)
+        return
+      } catch (e: unknown) {
+        if (attempt === MAX_CLIENT_RETRIES) {
+          setError(e instanceof Error ? e.message : 'Une erreur est survenue. Veuillez réessayer.')
+        }
+      }
     }
+    setLoading(false)
   }
 
   function reset() {

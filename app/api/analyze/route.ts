@@ -99,22 +99,55 @@ export async function POST(req: NextRequest) {
       content = 'Analyse cet expediteur : "' + sender + '". Est-ce un numero ou email fiable ? Donne des informations sur ce numero ou email.'
     }
 
-    const response = await client.messages.create({
-      model: 'claude-sonnet-4-6',
-      max_tokens: 1000,
-      system: SYSTEM_PROMPT,
-      messages: [{ role: 'user', content }]
-    })
+    // Retry automatique avec délai croissant (max 3 tentatives)
+    const MAX_RETRIES = 3
+    let lastError: unknown = null
 
-    const text = response.content[0].type === 'text' ? response.content[0].text : ''
-    const clean = text.replace(/```json/g, '').replace(/```/g, '').trim()
-    const result = JSON.parse(clean)
+    for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
+      try {
+        const response = await client.messages.create({
+          model: 'claude-sonnet-4-6',
+          max_tokens: 1000,
+          system: SYSTEM_PROMPT,
+          messages: [{ role: 'user', content }]
+        })
 
-    return NextResponse.json(result)
-  } catch (error) {
-    console.error('Erreur analyse:', error)
+        const text = response.content[0].type === 'text' ? response.content[0].text : ''
+        const clean = text.replace(/```json/g, '').replace(/```/g, '').trim()
+        const result = JSON.parse(clean)
+
+        return NextResponse.json(result)
+      } catch (err: unknown) {
+        lastError = err
+        const status = (err as any)?.status || (err as any)?.error?.status
+        const isOverloaded = status === 529 || status === 503 || status === 429
+
+        if (isOverloaded && attempt < MAX_RETRIES) {
+          // Attendre avant de réessayer : 2s, 4s
+          const delay = Math.pow(2, attempt) * 1000
+          await new Promise(resolve => setTimeout(resolve, delay))
+          continue
+        }
+
+        // Dernière tentative échouée ou erreur non-retryable
+        break
+      }
+    }
+
+    // Toutes les tentatives ont échoué
+    console.error('Erreur analyse après ' + MAX_RETRIES + ' tentatives:', lastError)
+    const status = (lastError as any)?.status || (lastError as any)?.error?.status
+    const isOverloaded = status === 529 || status === 503 || status === 429
+
+    if (isOverloaded) {
+      return NextResponse.json(
+        { error: 'overloaded', message: 'Désolé, beaucoup de monde utilise le service en ce moment. Réessayez dans un petit moment, ça reviendra vite !' },
+        { status: 503 }
+      )
+    }
+
     return NextResponse.json(
-      { error: "Erreur lors de l'analyse. Veuillez réessayer." },
+      { error: 'unknown', message: "Erreur lors de l'analyse. Veuillez réessayer." },
       { status: 500 }
     )
   }
