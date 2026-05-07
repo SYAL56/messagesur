@@ -150,5 +150,11 @@ export async function POST(req: NextRequest) {
       { error: 'unknown', message: "Erreur lors de l'analyse. Veuillez réessayer." },
       { status: 500 }
     )
+  } catch (error) {
+    console.error('Erreur inattendue:', error)
+    return NextResponse.json(
+      { error: 'unknown', message: "Erreur lors de l'analyse. Veuillez réessayer." },
+      { status: 500 }
+    )
   }
 }
