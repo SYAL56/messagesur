@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   verification: {
-    google: '5Bss1vjj9StBapP-pOrTaUnG_XcXuO1QuywO0nMeXwE',
+    google: 'LnByDeJoFakd0cskSphF-0JH-v0K_BbXdsrSrSMSuiU',
   },
   openGraph: {
     title: 'MessageSûr — Détectez les arnaques en quelques secondes',

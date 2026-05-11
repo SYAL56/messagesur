@@ -26,9 +26,42 @@ DOMAINES LEGITIMES CONNUS (ne pas signaler comme frauduleux) :
 - colissimo.fr, laposte.fr = La Poste officiel
 - mondialrelay.fr = Mondial Relay officiel
 - ups.com, dhl.com, fedex.com = transporteurs internationaux
+- gls-group.com = GLS transporteur
+- relaiscolis.com = Relais Colis
+- tnt.com = TNT transporteur
+- geodis.com = Geodis transporteur
+- colisprive.fr = Colis Privé transporteur
 - ameli.fr = Assurance Maladie officiel
 - impots.gouv.fr, amendes.gouv.fr = sites gouvernementaux
 - signal.conso.gouv.fr, cybermalveillance.gouv.fr = sites officiels
+- caf.fr = Caisse d'Allocations Familiales
+- service-public.fr = portail de l'administration française
+- pole-emploi.fr, francetravail.fr = France Travail officiel
+- securite-sociale.fr = Sécurité sociale officiel
+- ants.gouv.fr = Agence nationale des titres sécurisés
+- antai.gouv.fr = Agence nationale de traitement automatisé des infractions
+- creditagricole.fr = Crédit Agricole banque
+- bnpparibas.fr = BNP Paribas banque
+- societegenerale.fr = Société Générale banque
+- lcl.fr = LCL banque
+- banquepopulaire.fr = Banque Populaire
+- caisse-epargne.fr = Caisse d'Épargne
+- credit-mutuel.fr = Crédit Mutuel banque
+- boursorama.com = Boursorama banque en ligne
+- fortuneo.fr = Fortuneo banque en ligne
+- hellobank.fr = Hello Bank banque en ligne
+- orange.fr = Orange opérateur
+- sfr.fr = SFR opérateur
+- free.fr = Free opérateur
+- bouyguestelecom.fr = Bouygues Telecom opérateur
+- edf.fr = EDF énergie
+- engie.fr = Engie énergie
+- totalenergies.fr = TotalEnergies
+- amazon.fr = Amazon France
+- cdiscount.com = Cdiscount
+- fnac.com = Fnac
+- leboncoin.fr = Leboncoin
+- vinted.fr = Vinted
 Les numeros dans les URLs de ces domaines sont des numeros de colis ou de suivi, PAS des numeros de telephone.
 
 Pour les URLS dans les messages :
