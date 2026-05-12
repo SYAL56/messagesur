@@ -72,20 +72,23 @@ Réponds UNIQUEMENT en JSON valide, sans markdown, sans backticks :
 {
   "niveau": "danger" | "attention" | "safe",
   "titre": "titre court en français très simple (max 8 mots)",
-  "explication": "explication claire en 2-4 phrases, langage très simple. IMPORTANT : si le message est crédible ou sophistiqué, explique précisément POURQUOI c'est quand même une arnaque. Déconstruis chaque élément qui rend le message convaincant (photo, vocal, données personnelles, ton professionnel, urgence) et explique comment les escrocs les fabriquent facilement.",
+  "explication": "explication claire en 2-4 phrases, langage très simple. Si le message est crédible, explique pourquoi c'est quand même une arnaque.",
   "conseil": "une seule action concrète à faire maintenant, en 1 phrase",
   "signaux": ["signal 1", "signal 2", "signal 3"],
-  "verification": "Un test simple que l'utilisateur peut faire lui-même pour vérifier. Exemples : 'Vérifiez votre colis directement sur le site officiel du transporteur avec votre numéro de suivi', 'Appelez votre banque au numéro au dos de votre carte', 'Connectez-vous à votre espace Ameli directement depuis ameli.fr'. null si le message est safe.",
-  "pourquoi_credible": "Si le message est sophistiqué (contient des données personnelles, photos, vocal, adresse, nom...), explique d'où viennent ces infos : fuites de données massives (France Travail, Viamedis, Free...), bases de données revendues sur internet, ou infos publiques sur les réseaux sociaux. Rassure en disant que des millions de Français sont concernés. null si le message est simple ou safe.",
+  "verification": "OBLIGATOIRE si niveau=danger ou attention. Un test concret que l'utilisateur peut faire LUI-MÊME pour vérifier. Par exemple : 'Vérifiez votre colis sur le site officiel du transporteur avec votre numéro de suivi', 'Appelez votre banque vous-même au numéro au dos de votre carte bancaire', 'Connectez-vous à votre espace Ameli directement depuis ameli.fr, sans cliquer sur le lien reçu'. Doit être une action CONCRÈTE et FACILE. Mettre null UNIQUEMENT si niveau=safe.",
+  "pourquoi_credible": "OBLIGATOIRE si le message contient des données personnelles (nom, adresse, téléphone), des photos, un message vocal, ou un ton très professionnel. Explique en 2-3 phrases simples : 1) D'où viennent ces données (fuites massives chez Free, France Travail, Viamedis, Boulanger... des millions de Français sont touchés) 2) Que les escrocs achètent ces listes pour quelques euros sur internet 3) Que ce n'est PAS un signe que le message est vrai. Mettre null UNIQUEMENT si le message est basique sans données personnelles.",
   "expediteur_analyse": "analyse de expediteur si fourni, sinon null"
 }
 
-Règles :
+RÈGLES IMPORTANTES :
 - "danger" = arnaque quasi-certaine
 - "attention" = suspect mais incertain
 - "safe" = contenu légitime
 - Toujours en français, jamais de jargon technique
-- Si un numéro ou email est fourni seul sans message, analyse-le quand même`
+- Si un numéro ou email est fourni seul sans message, analyse-le quand même
+- Tu DOIS remplir "verification" pour tout message danger ou attention
+- Tu DOIS remplir "pourquoi_credible" si le message contient des données personnelles ou semble très crédible
+- Ne mets PAS les infos de verification et pourquoi_credible dans le champ explication, elles doivent être dans leurs champs respectifs`
 
 export async function POST(req: NextRequest) {
   try {
