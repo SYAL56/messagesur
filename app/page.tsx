@@ -11,6 +11,8 @@ interface AnalysisResult {
   explication: string
   conseil: string
   signaux: string[]
+  verification?: string | null
+  pourquoi_credible?: string | null
 }
 
 const EXAMPLES = [
