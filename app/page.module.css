@@ -360,6 +360,54 @@
 .resultWarning .conseil { background: rgba(230, 81, 0, 0.1); color: var(--warn-text); }
 .resultSafe .conseil { background: rgba(46, 125, 50, 0.1); color: var(--safe-text); }
 
+.verification {
+  display: flex;
+  gap: 10px;
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  align-items: flex-start;
+  background: rgba(21, 101, 194, 0.08);
+  color: #1565C0;
+  border: 1px solid rgba(21, 101, 194, 0.15);
+}
+
+.verificationIcon {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.verificationTitle {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.pourquoiCredible {
+  display: flex;
+  gap: 10px;
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  align-items: flex-start;
+  background: rgba(255, 152, 0, 0.08);
+  color: #E65100;
+  border: 1px solid rgba(255, 152, 0, 0.15);
+}
+
+.pourquoiCredibleIcon {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.pourquoiCredibleTitle {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
 .resetBtn {
   width: 100%;
   padding: 0.8rem;

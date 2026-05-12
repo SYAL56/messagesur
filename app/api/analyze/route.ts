@@ -72,9 +72,11 @@ Réponds UNIQUEMENT en JSON valide, sans markdown, sans backticks :
 {
   "niveau": "danger" | "attention" | "safe",
   "titre": "titre court en français très simple (max 8 mots)",
-  "explication": "explication claire en 2-3 phrases, langage très simple",
+  "explication": "explication claire en 2-4 phrases, langage très simple. IMPORTANT : si le message est crédible ou sophistiqué, explique précisément POURQUOI c'est quand même une arnaque. Déconstruis chaque élément qui rend le message convaincant (photo, vocal, données personnelles, ton professionnel, urgence) et explique comment les escrocs les fabriquent facilement.",
   "conseil": "une seule action concrète à faire maintenant, en 1 phrase",
   "signaux": ["signal 1", "signal 2", "signal 3"],
+  "verification": "Un test simple que l'utilisateur peut faire lui-même pour vérifier. Exemples : 'Vérifiez votre colis directement sur le site officiel du transporteur avec votre numéro de suivi', 'Appelez votre banque au numéro au dos de votre carte', 'Connectez-vous à votre espace Ameli directement depuis ameli.fr'. null si le message est safe.",
+  "pourquoi_credible": "Si le message est sophistiqué (contient des données personnelles, photos, vocal, adresse, nom...), explique d'où viennent ces infos : fuites de données massives (France Travail, Viamedis, Free...), bases de données revendues sur internet, ou infos publiques sur les réseaux sociaux. Rassure en disant que des millions de Français sont concernés. null si le message est simple ou safe.",
   "expediteur_analyse": "analyse de expediteur si fourni, sinon null"
 }
 

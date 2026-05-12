@@ -190,6 +190,24 @@ ou laissez vide pour tester un numéro ou une adresse email" rows={5} maxLength=
               <span className={styles.conseilIcon}>→</span>
               <p>{result.conseil}</p>
             </div>
+            {result.verification && (
+              <div className={styles.verification}>
+                <span className={styles.verificationIcon}>🔍</span>
+                <div>
+                  <p className={styles.verificationTitle}>Comment vérifier vous-même :</p>
+                  <p>{result.verification}</p>
+                </div>
+              </div>
+            )}
+            {result.pourquoi_credible && (
+              <div className={styles.pourquoiCredible}>
+                <span className={styles.pourquoiCredibleIcon}>💡</span>
+                <div>
+                  <p className={styles.pourquoiCredibleTitle}>Pourquoi ce message semble vrai :</p>
+                  <p>{result.pourquoi_credible}</p>
+                </div>
+              </div>
+            )}
             { result.niveau === 'danger' && (
               <div className={styles.signalement}>
                 <p className={styles.signauxTitle}>Signaler cette arnaque :</p>
