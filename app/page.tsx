@@ -80,6 +80,7 @@ export default function Home() {
   }
 
   function reset() {
+    if (preview) URL.revokeObjectURL(preview)
     setMessage(''); setSender(''); setFile(null); setPreview(null); setResult(null); setError(null)
   }
 
@@ -149,7 +150,7 @@ ou laissez vide pour tester un numéro ou une adresse email" rows={5} maxLength=
                 <div className={styles.fileInfo}>
                   {preview && <img src={preview} alt="aperçu" className={styles.previewImg} />}
                   <span>{file.name}</span>
-                  <button onClick={() => { setFile(null); setPreview(null) }} aria-label="Supprimer le fichier">✕</button>
+                  <button onClick={() => { if (preview) URL.revokeObjectURL(preview); setFile(null); setPreview(null) }} aria-label="Supprimer le fichier">✕</button>
                 </div>
               )}
             </div>

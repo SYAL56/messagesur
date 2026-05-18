@@ -1,7 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server'
 import Anthropic from '@anthropic-ai/sdk'
+import { checkRateLimit, getClientIP } from '../../lib/rateLimit'
 
 const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY })
+
+const MAX_FILE_SIZE = 5 * 1024 * 1024 // 5 Mo
+const MAX_MESSAGE_LENGTH = 4000
+const MAX_SENDER_LENGTH = 200
+const ALLOWED_MIME_TYPES = new Set(['image/jpeg', 'image/png', 'image/webp', 'application/pdf'])
 
 const SYSTEM_PROMPT = `Tu es un assistant de sécurité numérique expert en détection d'arnaques en France.
 
@@ -91,14 +97,41 @@ RÈGLES IMPORTANTES :
 - Ne mets PAS les infos de verification et pourquoi_credible dans le champ explication, elles doivent être dans leurs champs respectifs`
 
 export async function POST(req: NextRequest) {
+  // Rate limiting : 15 requêtes par 5 minutes par IP
+  const ip = getClientIP(req)
+  if (!checkRateLimit(`analyze:${ip}`, 15, 5 * 60 * 1000)) {
+    return NextResponse.json(
+      { error: 'rate_limited', message: 'Trop de requêtes. Veuillez patienter quelques minutes.' },
+      { status: 429 }
+    )
+  }
+
   try {
     const formData = await req.formData()
-    const message = formData.get('message') as string
-    const sender = formData.get('sender') as string
+    const message = (formData.get('message') as string | null) ?? ''
+    const sender = (formData.get('sender') as string | null) ?? ''
     const file = formData.get('file') as File | null
 
     if (!message && !file && !sender) {
       return NextResponse.json({ error: 'Contenu manquant' }, { status: 400 })
+    }
+
+    // Validation des longueurs
+    if (message.length > MAX_MESSAGE_LENGTH) {
+      return NextResponse.json({ error: 'Message trop long (max 4000 caractères)' }, { status: 400 })
+    }
+    if (sender.length > MAX_SENDER_LENGTH) {
+      return NextResponse.json({ error: 'Expéditeur trop long' }, { status: 400 })
+    }
+
+    // Validation du fichier
+    if (file) {
+      if (file.size > MAX_FILE_SIZE) {
+        return NextResponse.json({ error: 'Fichier trop volumineux (max 5 Mo)' }, { status: 413 })
+      }
+      if (!ALLOWED_MIME_TYPES.has(file.type)) {
+        return NextResponse.json({ error: 'Format non supporté (JPEG, PNG, WebP ou PDF uniquement)' }, { status: 415 })
+      }
     }
 
     let content: Anthropic.MessageParam['content'] = []
@@ -106,7 +139,7 @@ export async function POST(req: NextRequest) {
     if (file) {
       const bytes = await file.arrayBuffer()
       const base64 = Buffer.from(bytes).toString('base64')
-      const mediaType = file.type as 'image/jpeg' | 'image/png' | 'image/gif' | 'image/webp' | 'application/pdf'
+      const mediaType = file.type as 'image/jpeg' | 'image/png' | 'image/webp' | 'application/pdf'
 
       if (mediaType === 'application/pdf') {
         content = [
@@ -116,7 +149,7 @@ export async function POST(req: NextRequest) {
           } as any,
           {
             type: 'text',
-            text: 'Analyse ce document' + (sender ? ' recu de : "' + sender + '"' : '') + '. Est-ce une arnaque ?'
+            text: `Analyse ce document${sender ? ` reçu de : <expediteur>${sender}</expediteur>` : ''}. Est-ce une arnaque ?`
           }
         ]
       } else {
@@ -127,14 +160,15 @@ export async function POST(req: NextRequest) {
           },
           {
             type: 'text',
-            text: 'Analyse cette image' + (sender ? ' recue de : "' + sender + '"' : '') + '. Est-ce une arnaque ?'
+            text: `Analyse cette image${sender ? ` reçue de : <expediteur>${sender}</expediteur>` : ''}. Est-ce une arnaque ?`
           }
         ]
       }
     } else if (message) {
-      content = 'Analyse ce message recu' + (sender ? ' de l expediteur "' + sender + '"' : '') + ' : "' + message + '"'
+      // Les balises XML délimitent clairement le contenu utilisateur pour limiter l'injection de prompt
+      content = `Analyse ce message${sender ? ` reçu de <expediteur>${sender}</expediteur>` : ''} :\n<message_utilisateur>\n${message}\n</message_utilisateur>`
     } else if (sender) {
-      content = 'Analyse cet expediteur : "' + sender + '". Est-ce un numero ou email fiable ? Donne des informations sur ce numero ou email.'
+      content = `Analyse cet expéditeur : <expediteur>${sender}</expediteur>. Est-ce un numéro ou email fiable ?`
     }
 
     // Retry automatique avec délai croissant (max 3 tentatives)
@@ -161,19 +195,16 @@ export async function POST(req: NextRequest) {
         const isOverloaded = status === 529 || status === 503 || status === 429
 
         if (isOverloaded && attempt < MAX_RETRIES) {
-          // Attendre avant de réessayer : 2s, 4s
           const delay = Math.pow(2, attempt) * 1000
           await new Promise(resolve => setTimeout(resolve, delay))
           continue
         }
 
-        // Dernière tentative échouée ou erreur non-retryable
         break
       }
     }
 
-    // Toutes les tentatives ont échoué
-    console.error('Erreur analyse après ' + MAX_RETRIES + ' tentatives:', lastError)
+    console.error('Erreur analyse après', MAX_RETRIES, 'tentatives:', lastError)
     const status = (lastError as any)?.status || (lastError as any)?.error?.status
     const isOverloaded = status === 529 || status === 503 || status === 429
 
