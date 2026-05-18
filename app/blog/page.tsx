@@ -1,91 +1,75 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 
+export const metadata: Metadata = {
+  title: "Blog – Arnaques et conseils de sécurité | MessageSûr",
+  description: "Guides pratiques pour reconnaître les arnaques par SMS, email et téléphone. Vishing, faux colis, phishing… apprenez à vous protéger.",
+  alternates: {
+    canonical: "https://www.messagesur.bzh/blog",
+  },
+}
+
 const articles = [
+  {
+    slug: 'faux-colis-ia',
+    titre: "Arnaque au faux colis avec photo générée par IA",
+    resume: "Des escrocs utilisent l'IA pour créer des photos de colis avec votre nom. Votre prénom sur l'étiquette ne prouve rien — voici comment les démasquer.",
+    date: '19 mai 2026',
+  },
   {
     slug: 'vishing',
     titre: "Vishing : l'arnaque au faux conseiller bancaire par téléphone",
     resume: "Quelqu'un vous appelle en se présentant comme votre banque ? Les 5 signes pour reconnaître l'arnaque et les bons réflexes.",
     date: '11 mai 2026',
-    emoji: '📞',
-  },
-  {
-    slug: 'impots',
-    titre: "Arnaque aux impôts par SMS : comment la reconnaître ?",
-    resume: "Les impôts ne vous contactent jamais par SMS. Voici comment repérer ces arnaques et quoi faire.",
-    date: '4 mai 2026',
-    emoji: '🏛️',
-  },
-  {
-    slug: 'faux-pv',
-    titre: "Faux SMS d'amende : l'arnaque au PV qui explose en 2026",
-    resume: "L'ANTAI n'envoie jamais de SMS. Voici comment reconnaître cette arnaque et quoi faire.",
-    date: '27 avril 2026',
-    emoji: '🚗',
   },
   {
     slug: 'chronopost',
-    titre: 'Faux SMS Chronopost : comment reconnaître l\'arnaque ?',
-    resume: 'Ces messages vous demandent de payer des frais de livraison. Avant de cliquer, découvrez les 5 signes qui ne trompent pas.',
-    date: '24 avril 2026',
-    emoji: '📦',
+    titre: "Faux SMS Chronopost : comment reconnaître l'arnaque",
+    resume: "Vous avez reçu un SMS vous demandant de payer des frais de livraison Chronopost ? Voici comment vérifier s'il est légitime.",
+    date: '1 mai 2026',
   },
   {
     slug: 'ameli',
-    titre: 'Faux SMS Ameli : les signes qui ne trompent pas',
-    resume: 'L\'Assurance Maladie ne vous contacte jamais par SMS pour vos données personnelles. Voici comment reconnaître ces arnaques.',
-    date: '24 avril 2026',
-    emoji: '🏥',
+    titre: "Faux SMS Ameli : arnaque à la carte Vitale",
+    resume: "Des SMS frauduleux imitent l'Assurance Maladie pour voler vos données. Apprenez à les reconnaître.",
+    date: '1 mai 2026',
+  },
+  {
+    slug: 'impots',
+    titre: "Faux email des impôts : remboursement ou menace ?",
+    resume: "Vous avez reçu un email des impôts vous promettant un remboursement ou vous menaçant d'une amende ? Comment faire la différence.",
+    date: '1 mai 2026',
+  },
+  {
+    slug: 'faux-pv',
+    titre: "Faux PV par SMS : l'arnaque aux amendes impayées",
+    resume: "Des messages vous réclament le paiement d'une amende via un lien. Voici comment éviter le piège.",
+    date: '1 mai 2026',
   },
   {
     slug: 'clic-suspect',
-    titre: 'J\'ai cliqué sur un lien suspect, que faire maintenant ?',
-    resume: 'Pas de panique. Tout dépend de ce que vous avez fait ensuite. Voici quoi faire dans les minutes qui suivent.',
-    date: '24 avril 2026',
-    emoji: '🚨',
+    titre: "J'ai cliqué sur un lien suspect : que faire ?",
+    resume: "Pas de panique. Voici les étapes à suivre immédiatement si vous avez cliqué sur un lien frauduleux.",
+    date: '1 mai 2026',
   },
 ]
 
 export default function Blog() {
   return (
-    <main style={{maxWidth:'600px',margin:'0 auto',padding:'2rem 1.25rem 4rem',fontFamily:'var(--font-sans)'}}>
-      <header style={{display:'flex',alignItems:'center',gap:'14px',marginBottom:'3rem'}}>
-        <div style={{width:'48px',height:'48px',background:'#1565C0',color:'white',borderRadius:'14px',display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0}}>
-          <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style={{width:'26px',height:'26px'}}>
-            <path d="M16 3L4 8v8c0 7.18 5.14 13.9 12 15.5C22.86 29.9 28 23.18 28 16V8L16 3z" fill="currentColor" opacity="0.15"/>
-            <path d="M16 3L4 8v8c0 7.18 5.14 13.9 12 15.5C22.86 29.9 28 23.18 28 16V8L16 3z" stroke="currentColor" strokeWidth="1.5" fill="none"/>
-            <path d="M11 16.5l3.5 3.5 6.5-7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        </div>
-        <div>
-          <div style={{fontFamily:'var(--font-serif)',fontSize:'1.4rem',color:'var(--warm-brown)'}}>MessageSûr</div>
-          <div style={{fontSize:'0.72rem',color:'var(--light-brown)',letterSpacing:'0.04em',textTransform:'uppercase'}}>Protection contre les arnaques numériques</div>
-        </div>
-      </header>
-
-      <h1 style={{fontFamily:'var(--font-serif)',fontSize:'2.2rem',fontWeight:400,color:'var(--warm-brown)',marginBottom:'0.5rem'}}>Blog</h1>
-      <p style={{color:'var(--mid-brown)',fontSize:'0.95rem',marginBottom:'2rem'}}>Guides pratiques pour reconnaître et éviter les arnaques numériques.</p>
-
-      <div style={{display:'flex',flexDirection:'column',gap:'1rem'}}>
-        {articles.map(article => (
-          <Link key={article.slug} href={`/blog/${article.slug}`} style={{textDecoration:'none'}}>
-            <div style={{background:'white',borderRadius:'22px',padding:'1.5rem',border:'1px solid var(--cream-dark)',boxShadow:'0 2px 20px rgba(44,24,16,0.06)',transition:'all 0.2s',cursor:'pointer'}}>
-              <div style={{display:'flex',alignItems:'flex-start',gap:'14px'}}>
-                <div style={{fontSize:'2rem',flexShrink:0}}>{article.emoji}</div>
-                <div>
-                  <p style={{fontSize:'0.8rem',color:'var(--light-brown)',marginBottom:'4px'}}>{article.date}</p>
-                  <h2 style={{fontFamily:'var(--font-serif)',fontSize:'1.1rem',fontWeight:400,color:'var(--warm-brown)',marginBottom:'0.5rem',lineHeight:1.3}}>{article.titre}</h2>
-                  <p style={{fontSize:'0.9rem',color:'var(--mid-brown)',lineHeight:1.6}}>{article.resume}</p>
-                  <p style={{fontSize:'0.85rem',color:'#1565C0',marginTop:'0.75rem',fontWeight:500}}>Lire l'article →</p>
-                </div>
-              </div>
-            </div>
-          </Link>
+    <main className="blog-container">
+      <h1>Blog MessageSûr</h1>
+      <p className="blog-intro">Guides pratiques pour reconnaître et éviter les arnaques du quotidien.</p>
+      <ul className="article-list">
+        {articles.map((article) => (
+          <li key={article.slug} className="article-card">
+            <Link href={`/blog/${article.slug}`}>
+              <h2>{article.titre}</h2>
+              <p>{article.resume}</p>
+              <span className="article-date">{article.date}</span>
+            </Link>
+          </li>
         ))}
-      </div>
-
-      <div style={{textAlign:'center',marginTop:'2rem'}}>
-        <Link href="/" style={{color:'var(--light-brown)',textDecoration:'none',fontSize:'0.9rem'}}>← Retour à l'accueil</Link>
-      </div>
+      </ul>
     </main>
   )
 }
