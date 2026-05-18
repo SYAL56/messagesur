@@ -1,0 +1,17 @@
+.situationSafe {
+  background: #EAF3DE;
+  border-color: #C0DD97;
+  color: #173404;
+}
+
+.situationWarn {
+  background: var(--warn-bg);
+  border-color: var(--warn-border);
+  color: var(--warn-text);
+}
+
+.situationDanger {
+  background: var(--danger-bg);
+  border-color: var(--danger-border);
+  color: var(--danger-text);
+}

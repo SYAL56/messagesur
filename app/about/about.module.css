@@ -1,50 +1,6 @@
-
-
-.main {
-  min-height: 100vh;
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 2rem 1.25rem 4rem;
+.hero {
+  margin-bottom: 2rem;
 }
-
-.header {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-bottom: 3rem;
-}
-
-.logoMark {
-  width: 48px;
-  height: 48px;
-  background: #1565C0;
-  color: white;
-  border-radius: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.logoMark svg { width: 26px; height: 26px; }
-
-.logoName {
-  font-family: var(--font-serif);
-  font-size: 1.4rem;
-  font-weight: 400;
-  color: var(--warm-brown);
-  line-height: 1;
-  margin-bottom: 3px;
-}
-
-.logoTagline {
-  font-size: 0.72rem;
-  color: var(--light-brown);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
-.hero { margin-bottom: 2rem; }
 
 .heroTitle {
   font-family: var(--font-serif);
@@ -54,7 +10,9 @@
   line-height: 1.2;
 }
 
-.heroAccent { color: #1565C0; }
+.heroAccent {
+  color: var(--blue);
+}
 
 .card {
   background: white;
@@ -80,7 +38,9 @@
   margin-bottom: 0.75rem;
 }
 
-.text:last-child { margin-bottom: 0; }
+.text:last-child {
+  margin-bottom: 0;
+}
 
 .profile {
   display: flex;
@@ -96,7 +56,7 @@
   width: 52px;
   height: 52px;
   border-radius: 50%;
-  background: #1565C0;
+  background: var(--blue);
   color: white;
   display: flex;
   align-items: center;
@@ -115,7 +75,7 @@
 
 .role {
   font-size: 0.85rem;
-  color: #1565C0;
+  color: var(--blue);
   margin-bottom: 2px;
 }
 
@@ -132,7 +92,7 @@
 
 .step {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 14px;
 }
 
@@ -140,7 +100,7 @@
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: #1565C0;
+  background: var(--blue);
   color: white;
   display: flex;
   align-items: center;
@@ -154,6 +114,7 @@
   font-size: 0.95rem;
   color: var(--mid-brown);
   line-height: 1.5;
+  padding-top: 6px;
 }
 
 .guarantees {
@@ -186,7 +147,7 @@
   display: inline-block;
   margin-top: 1rem;
   padding: 0.9rem 1.5rem;
-  background: #1565C0;
+  background: var(--blue);
   color: white;
   border-radius: 14px;
   font-size: 1rem;
@@ -196,19 +157,6 @@
 }
 
 .contactBtn:hover {
-  background: #0D47A1;
+  background: var(--blue-dark);
   transform: translateY(-1px);
 }
-
-.backLink {
-  text-align: center;
-  margin-top: 2rem;
-}
-
-.backLink a {
-  font-size: 0.9rem;
-  color: var(--light-brown);
-  text-decoration: none;
-}
-
-.backLink a:hover { color: var(--mid-brown); }

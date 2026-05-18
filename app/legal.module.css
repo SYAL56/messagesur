@@ -1,0 +1,36 @@
+.main {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 4rem;
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 400;
+  margin-bottom: 2rem;
+  color: var(--warm-brown);
+}
+
+.h2 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin: 1.5rem 0 0.5rem;
+  color: var(--warm-brown);
+}
+
+.p {
+  color: var(--mid-brown);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.backLink {
+  color: var(--light-brown);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.backLink:hover {
+  color: var(--mid-brown);
+}

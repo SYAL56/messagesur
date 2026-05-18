@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import styles from './page.module.css'
+import shared from './shared.module.css'
 
 type Niveau = 'danger' | 'attention' | 'safe'
 
@@ -109,8 +110,8 @@ export default function Home() {
 
   return (
     <main className={styles.main}>
-      <header className={styles.header}>
-        <div className={styles.logoMark}>
+      <header className={shared.header}>
+        <div className={shared.logoMark}>
           <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M16 3L4 8v8c0 7.18 5.14 13.9 12 15.5C22.86 29.9 28 23.18 28 16V8L16 3z" fill="currentColor" opacity="0.15"/>
             <path d="M16 3L4 8v8c0 7.18 5.14 13.9 12 15.5C22.86 29.9 28 23.18 28 16V8L16 3z" stroke="currentColor" strokeWidth="1.5" fill="none"/>
@@ -118,12 +119,9 @@ export default function Home() {
           </svg>
         </div>
         <div style={{flex:1}}>
-          <h1 className={styles.logoName}>MessageSûr</h1>
-          <p className={styles.logoTagline}>Protection contre les arnaques numériques</p>
+          <h1 className={shared.logoName}>MessageSûr</h1>
+          <p className={shared.logoTagline}>Protection contre les arnaques numériques</p>
         </div>
-        <nav className={styles.nav}>
-          
-        </nav>
       </header>
 
       <section className={styles.hero}>
@@ -151,7 +149,7 @@ ou laissez vide pour tester un numéro ou une adresse email" rows={5} maxLength=
                 <div className={styles.fileInfo}>
                   {preview && <img src={preview} alt="aperçu" className={styles.previewImg} />}
                   <span>{file.name}</span>
-                  <button onClick={() => { setFile(null); setPreview(null) }}>✕</button>
+                  <button onClick={() => { setFile(null); setPreview(null) }} aria-label="Supprimer le fichier">✕</button>
                 </div>
               )}
             </div>
@@ -276,9 +274,9 @@ ou laissez vide pour tester un numéro ou une adresse email" rows={5} maxLength=
       <footer className={styles.footer}>
         <p>© 2026 MessageSûr — Fait avec soin pour vous protéger</p>
         <p className={styles.footerLinks}>
-          <a href="/about">À propos</a><span>·</span>
-          <a href="/confidentialite">Confidentialité</a><span>·</span>
-          <a href="/mentions-legales">Mentions légales</a><span>·</span>
+          <a href="/about">À propos</a><span aria-hidden="true">·</span>
+          <a href="/confidentialite">Confidentialité</a><span aria-hidden="true">·</span>
+          <a href="/mentions-legales">Mentions légales</a><span aria-hidden="true">·</span>
           <a href="https://mail.google.com/mail/?view=cm&to=messagesur.bzh@gmail.com">Contact</a>
         </p>
       </footer>

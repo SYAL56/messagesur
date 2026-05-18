@@ -13,38 +13,7 @@
   margin-bottom: 3rem;
 }
 
-.logoMark {
-  width: 48px;
-  height: 48px;
-  background: #1565C0;
-  color: white;
-  border-radius: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.logoMark svg {
-  width: 26px;
-  height: 26px;
-}
-
-.logoName {
-  font-family: var(--font-serif);
-  font-size: 1.4rem;
-  font-weight: 400;
-  color: var(--warm-brown);
-  line-height: 1;
-  margin-bottom: 3px;
-}
-
-.logoTagline {
-  font-size: 0.72rem;
-  color: var(--light-brown);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
+/* header/logo styles sont dans shared.module.css */
 
 /* Hero */
 .hero {
@@ -61,7 +30,7 @@
 }
 
 .heroAccent {
-  color: #1565C0;
+  color: var(--blue);
 }
 
 .heroSub {
@@ -99,13 +68,14 @@
   border: 1.5px solid var(--cream-dark);
   border-radius: var(--radius-md);
   resize: vertical;
-  transition: border-color 0.2s;
+  transition: border-color 0.2s, box-shadow 0.2s;
   outline: none;
 }
 
 .textarea:focus {
-  border-color: #1565C0;
+  border-color: var(--blue);
   background: white;
+  box-shadow: 0 0 0 3px rgba(21, 101, 192, 0.2);
 }
 
 .textarea::placeholder {
@@ -145,9 +115,9 @@
 }
 
 .exampleBtn:hover {
-  border-color: #1565C0;
-  color: #1565C0;
-  background: #E3F2FD;
+  border-color: var(--blue);
+  color: var(--blue);
+  background: var(--blue-light);
 }
 
 /* Analyze button */
@@ -157,7 +127,7 @@
   font-family: var(--font-sans);
   font-size: 1.05rem;
   font-weight: 600;
-  background: #1565C0;
+  background: var(--blue);
   color: white;
   border: none;
   border-radius: var(--radius-md);
@@ -167,7 +137,7 @@
 }
 
 .analyzeBtn:hover:not(:disabled) {
-  background: #0D47A1;
+  background: var(--blue-dark);
   transform: translateY(-1px);
   box-shadow: 0 4px 16px rgba(21, 101, 192, 0.3);
 }
@@ -369,9 +339,9 @@
   line-height: 1.6;
   margin-bottom: 1rem;
   align-items: flex-start;
-  background: rgba(21, 101, 194, 0.08);
-  color: #1565C0;
-  border: 1px solid rgba(21, 101, 194, 0.15);
+  background: rgba(21, 101, 192, 0.08);
+  color: var(--blue);
+  border: 1px solid rgba(21, 101, 192, 0.15);
 }
 
 .verificationIcon {
@@ -483,19 +453,21 @@
   border-radius: var(--radius-md);
   margin-bottom: 1rem;
   outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .senderInput:focus {
-  border-color: #1565C0;
+  border-color: var(--blue);
   background: white;
+  box-shadow: 0 0 0 3px rgba(21, 101, 192, 0.2);
 }
 .guideBtn {
   display: inline-block;
   margin-top: 1rem;
   font-size: 0.9rem;
-  color: #1565C0;
+  color: var(--blue);
   text-decoration: none;
-  border-bottom: 1px solid #1565C0;
+  border-bottom: 1px solid var(--blue);
   padding-bottom: 2px;
 }
 
@@ -514,12 +486,12 @@
   gap: 8px;
   font-size: 0.95rem;
   font-weight: 500;
-  color: #1565C0;
+  color: var(--blue);
   cursor: pointer;
   padding: 10px 16px;
-  border: 2px dashed #1565C0;
+  border: 2px dashed var(--blue);
   border-radius: 12px;
-  background: #E3F2FD;
+  background: var(--blue-light);
   transition: all 0.2s;
   width: 100%;
   justify-content: center;
@@ -527,7 +499,7 @@
 
 .uploadLabel:hover {
   background: #BBDEFB;
-  border-color: #0D47A1;
+  border-color: var(--blue-dark);
 }
 
 .fileInfo {
@@ -582,10 +554,10 @@
 }
 
 .newsletter {
-  background: #E3F2FD;
+  background: var(--blue-light);
   border-radius: 22px;
   padding: 1.5rem;
-  border: 1px solid #90CAF9;
+  border: 1px solid var(--blue-border);
   margin-bottom: 2rem;
   text-align: center;
 }
@@ -594,13 +566,13 @@
   font-family: var(--font-serif);
   font-size: 1.2rem;
   font-weight: 400;
-  color: #0D47A1;
+  color: var(--blue-dark);
   margin-bottom: 0.5rem;
 }
 
 .newsletterDesc {
   font-size: 0.9rem;
-  color: #1565C0;
+  color: var(--blue);
   margin-bottom: 1rem;
 }
 
@@ -615,29 +587,34 @@
 .newsletterInput {
   flex: 1;
   padding: 0.7rem 1rem;
-  border: 1.5px solid #90CAF9;
-  border-radius: 12px;
+  font-family: var(--font-sans);
   font-size: 0.9rem;
+  border: 1.5px solid var(--blue-border);
+  border-radius: 12px;
   outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .newsletterInput:focus {
-  border-color: #1565C0;
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(21, 101, 192, 0.2);
 }
 
 .newsletterBtn {
   padding: 0.7rem 1.2rem;
-  background: #1565C0;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 500;
+  background: var(--blue);
   color: white;
   border: none;
   border-radius: 12px;
-  font-size: 0.9rem;
-  font-weight: 500;
   cursor: pointer;
+  transition: background 0.2s;
 }
 
 .newsletterBtn:hover {
-  background: #0D47A1;
+  background: var(--blue-dark);
 }
 
 .newsletterMsg {
@@ -692,7 +669,7 @@
   font-family: var(--font-serif);
   font-size: 1.15rem;
   font-weight: 400;
-  color: #1565C0;
+  color: var(--blue);
   text-transform: none;
   letter-spacing: normal;
   margin-bottom: 1rem;
@@ -759,7 +736,7 @@
 .shareBox {
   background: white;
   border-radius: 22px;
-  border: 1.5px solid #90CAF9;
+  border: 1.5px solid var(--blue-border);
   padding: 1.25rem;
   text-align: center;
   margin-bottom: 1.5rem;
@@ -769,6 +746,6 @@
   font-family: var(--font-serif);
   font-size: 1.15rem;
   font-weight: 400;
-  color: #1565C0;
+  color: var(--blue);
   margin-bottom: 0.75rem;
 }

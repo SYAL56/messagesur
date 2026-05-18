@@ -1,14 +1,15 @@
 'use client'
 
 import styles from './about.module.css'
+import shared from '../shared.module.css'
 import Link from 'next/link'
 
 export default function About() {
   return (
-    <main className={styles.main}>
+    <main className={shared.pageMain}>
 
-      <header className={styles.header}>
-        <div className={styles.logoMark}>
+      <header className={shared.header}>
+        <div className={shared.logoMark}>
           <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M16 3L4 8v8c0 7.18 5.14 13.9 12 15.5C22.86 29.9 28 23.18 28 16V8L16 3z" fill="currentColor" opacity="0.15"/>
             <path d="M16 3L4 8v8c0 7.18 5.14 13.9 12 15.5C22.86 29.9 28 23.18 28 16V8L16 3z" stroke="currentColor" strokeWidth="1.5" fill="none"/>
@@ -16,8 +17,8 @@ export default function About() {
           </svg>
         </div>
         <div>
-          <div className={styles.logoName}>MessageSûr</div>
-          <div className={styles.logoTagline}>Protection contre les arnaques numériques</div>
+          <div className={shared.logoName}>MessageSûr</div>
+          <div className={shared.logoTagline}>Protection contre les arnaques numériques</div>
         </div>
       </header>
 
@@ -94,7 +95,7 @@ export default function About() {
         </a>
       </div>
 
-      <div className={styles.backLink}>
+      <div className={shared.backLink}>
         <Link href="/">← Retour à l'accueil</Link>
       </div>
 
