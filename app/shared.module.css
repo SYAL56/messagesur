@@ -56,6 +56,7 @@
   font-size: 0.9rem;
   color: var(--light-brown);
   text-decoration: none;
+  transition: color 0.2s;
 }
 
 .backLink a:hover {
