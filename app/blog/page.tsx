@@ -2,16 +2,23 @@ import Link from 'next/link'
 
 const articles = [
   {
+    slug: 'faux-numero',
+    titre: "« Bonjour, tu as toujours ce numéro ? » : l'arnaque au faux contact",
+    resume: "Un inconnu vous envoie un SMS amical en prétendant vous connaître. Ne répondez pas — c'est le début d'une arnaque en forte hausse.",
+    date: '1 juin 2026',
+    emoji: '📱',
+  },
+  {
     slug: 'carte-vitale',
     titre: "Arnaque à la carte Vitale expirée : comment la reconnaître",
-    resume: "Un SMS vous demande de renouveler votre carte Vitale ? La carte Vitale n'expire pas — voici comment démasquer cette arnaque en forte hausse.",
+    resume: "Un SMS vous demande de renouveler votre carte Vitale ? La carte Vitale n'expire pas — voici comment démasquer cette arnaque.",
     date: '25 mai 2026',
     emoji: '🏥',
   },
   {
     slug: 'faux-colis-ia',
     titre: "Arnaque au faux colis avec photo générée par IA",
-    resume: "Des escrocs utilisent l'IA pour créer des photos de colis avec votre nom. Votre prénom sur l'étiquette ne prouve rien — voici comment les démasquer.",
+    resume: "Des escrocs utilisent l'IA pour créer des photos de colis avec votre nom. Votre prénom sur l'étiquette ne prouve rien.",
     date: '19 mai 2026',
     emoji: '📦',
   },

@@ -15,6 +15,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: 'https://www.messagesur.bzh/blog/faux-numero',
+      lastModified: new Date('2026-06-01'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
       url: 'https://www.messagesur.bzh/blog/carte-vitale',
       lastModified: new Date('2026-05-25'),
       changeFrequency: 'monthly',
