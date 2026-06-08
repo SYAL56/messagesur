@@ -76,6 +76,10 @@ const articles = [
 export default function Blog() {
   return (
     <main style={{maxWidth:'600px',margin:'0 auto',padding:'2rem 1.25rem 4rem',fontFamily:'var(--font-sans)'}}>
+      <div style={{textAlign:'center',marginBottom:'1.5rem'}}>
+        <Link href="/" style={{color:'var(--light-brown)',textDecoration:'none',fontSize:'0.9rem'}}>← Retour à l'accueil</Link>
+      </div>
+
       <header style={{display:'flex',alignItems:'center',gap:'14px',marginBottom:'3rem'}}>
         <div style={{width:'48px',height:'48px',background:'#1565C0',color:'white',borderRadius:'14px',display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0}}>
           <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style={{width:'26px',height:'26px'}}>
