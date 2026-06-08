@@ -2,6 +2,13 @@ import Link from 'next/link'
 
 const articles = [
   {
+    slug: 'faux-peage',
+    titre: "Arnaque aux faux péages : +900 % de fraudes en 2026",
+    resume: "Un SMS vous réclame un péage impayé de 2 à 5 €. Le montant est faible, le lien semble officiel. C'est une arnaque en explosion — voici comment la reconnaître.",
+    date: '8 juin 2026',
+    emoji: '🛣️',
+  },
+  {
     slug: 'faux-numero',
     titre: "« Bonjour, tu as toujours ce numéro ? » : l'arnaque au faux contact",
     resume: "Un inconnu vous envoie un SMS amical en prétendant vous connaître. Ne répondez pas — c'est le début d'une arnaque en forte hausse.",
