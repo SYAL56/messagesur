@@ -266,6 +266,7 @@ ou laissez vide pour tester un numéro ou une adresse email" rows={5} maxLength=
             {nlStatus === 'loading' ? '...' : "S'inscrire"}
           </button>
         </form>
+        <p style={{fontSize:'0.72rem', color:'#9ca3af', marginTop:'0.5rem', lineHeight:'1.4'}}>En vous inscrivant, vous acceptez de recevoir nos alertes par email. Désinscription possible à tout moment via le lien présent dans chaque email.</p>
         <p className={styles.newsletterMsg}>
           {nlStatus === 'success' && '✅ Inscrit ! Vous recevrez nos prochaines alertes.'}
           {nlStatus === 'error' && '❌ Erreur, veuillez réessayer.'}

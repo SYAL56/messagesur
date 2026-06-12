@@ -12,6 +12,9 @@ export default function Confidentialite() {
       <h2 className={s.h2}>Cookies</h2>
       <p className={s.p}>Nous utilisons uniquement des cookies techniques nécessaires au fonctionnement du site. Aucun cookie publicitaire ou de tracking tiers n'est utilisé.</p>
 
+      <h2 className={s.h2}>Newsletter</h2>
+      <p className={s.p}>Si vous vous inscrivez à nos alertes, votre adresse email est transmise à Brevo (Sendinblue SAS, société française, 7 rue de Madrid, 75008 Paris) pour l'envoi des emails. Elle est conservée tant que vous restez inscrit. Vous pouvez vous désinscrire à tout moment via le lien de désinscription présent dans chaque email, ou en nous contactant à messagesur.bzh@gmail.com.</p>
+
       <h2 className={s.h2}>Hébergement</h2>
       <p className={s.p}>Le site est hébergé par Vercel Inc. Les données sont traitées en Europe conformément au RGPD.</p>
 
