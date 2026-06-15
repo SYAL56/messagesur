@@ -2,6 +2,13 @@ import Link from 'next/link'
 
 const articles = [
   {
+    slug: 'donnees-fuite',
+    titre: "Vos données personnelles ont-elles fuité ? Comment le vérifier en 2 minutes",
+    resume: "Des milliards d'identifiants volés circulent en ligne. HaveIBeenPwned permet de savoir en quelques secondes si votre email a été compromis — et quoi faire.",
+    date: '15 juin 2026',
+    emoji: '🔍',
+  },
+  {
     slug: 'faux-peage',
     titre: "Arnaque aux faux péages : +900 % de fraudes en 2026",
     resume: "Un SMS vous réclame un péage impayé de 2 à 5 €. Le montant est faible, le lien semble officiel. C'est une arnaque en explosion — voici comment la reconnaître.",
