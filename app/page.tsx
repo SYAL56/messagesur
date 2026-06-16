@@ -125,17 +125,17 @@ export default function Home() {
         </div>
       </header>
 
-      <section className={styles.hero}>
-        <h2 className={styles.heroTitle}>Est-ce <span className={styles.heroAccent}>une arnaque ?</span></h2>
-        <p className={styles.heroSub}>Copiez votre SMS, email ou chargez une image/PDF suspect.<br />Notre assistant vous répond en quelques secondes.</p>
-        <a href="/guide" className={styles.guideBtn}>Comment utiliser MessageSûr →</a>
-        <br />
-        <a href="/blog" className={styles.guideBtn}>📚 Reconnaître les arnaques →</a>
-      </section>
+      <div className={styles.twoCol}>
+        <div className={`${styles.colLeft} ${result ? styles.colHiddenMobile : ''}`}>
+          <section className={styles.hero}>
+            <h2 className={styles.heroTitle}>Est-ce <span className={styles.heroAccent}>une arnaque ?</span></h2>
+            <p className={styles.heroSub}>Copiez votre SMS, email ou chargez une image/PDF suspect.<br />Notre assistant vous répond en quelques secondes.</p>
+            <a href="/guide" className={styles.guideBtn}>Comment utiliser MessageSûr →</a>
+            <br />
+            <a href="/blog" className={styles.guideBtn}>📚 Reconnaître les arnaques →</a>
+          </section>
 
-      <div className={styles.card}>
-        {!result ? (
-          <>
+          <div className={styles.card}>
             <label className={styles.inputLabel} htmlFor="sender">Expéditeur (optionnel)</label>
             <input id="sender" type="text" className={styles.senderInput} value={sender} onChange={e => setSender(e.target.value)} placeholder="Ex: 06 12 34 56 78 ou service@chronopost-fr.com" />
             <label className={styles.inputLabel} htmlFor="msg">Collez votre message ici</label>
@@ -166,68 +166,78 @@ ou laissez vide pour tester un numéro ou une adresse email" rows={5} maxLength=
             <button className={styles.analyzeBtn} onClick={analyze} disabled={loading || (!message.trim() && !file && !sender.trim())}>
               {loading ? <span className={styles.loadingContent}><span className={styles.spinner} />Analyse en cours…</span> : 'Analyser ce message →'}
             </button>
-          </>
-        ) : (
-          <div className={`${styles.result} ${config!.className}`}>
-            <div className={styles.resultHeader}>
-              <div className={`${styles.resultIconWrap} ${config!.iconClass}`}>
-                <span className={styles.resultIconEmoji}>{config!.icon}</span>
-              </div>
-              <div>
-                <span className={`${styles.badge} ${config!.badgeClass}`}>{config!.label}</span>
-                <h3 className={styles.resultTitle}>{result.titre}</h3>
-              </div>
-            </div>
-            <p className={styles.resultExplication}>{result.explication}</p>
-            {result.signaux && result.signaux.length > 0 && (
-              <div className={styles.signaux}>
-                <p className={styles.signauxTitle}>Indices repérés :</p>
-                <ul className={styles.signauxList}>
-                  {result.signaux.map((s, i) => <li key={i} className={styles.signalItem}>{s}</li>)}
-                </ul>
-              </div>
-            )}
-            <div className={styles.conseil}>
-              <span className={styles.conseilIcon}>→</span>
-              <p>{result.conseil}</p>
-            </div>
-            {result.verification && (
-              <div className={styles.verification}>
-                <span className={styles.verificationIcon}>🔍</span>
-                <div>
-                  <p className={styles.verificationTitle}>Comment vérifier vous-même :</p>
-                  <p>{result.verification}</p>
-                </div>
-              </div>
-            )}
-            {result.pourquoi_credible && (
-              <div className={styles.pourquoiCredible}>
-                <span className={styles.pourquoiCredibleIcon}>💡</span>
-                <div>
-                  <p className={styles.pourquoiCredibleTitle}>Pourquoi ce message semble vrai :</p>
-                  <p>{result.pourquoi_credible}</p>
-                </div>
-              </div>
-            )}
-            { result.niveau === 'danger' && (
-              <div className={styles.signalement}>
-                <p className={styles.signauxTitle}>Signaler cette arnaque :</p>
-                <div className={styles.signalementLinks}>
-                  <a href="https://www.33700.fr/" target="_blank" rel="noopener noreferrer" className={styles.signalementLink}>SMS → Signaler au 33700</a>
-                  <a href="https://www.signal-spam.fr/" target="_blank" rel="noopener noreferrer" className={styles.signalementLink}>Email → Signal Spam</a>
-                  <a href="https://phishing-initiative.eu/contrib/" target="_blank" rel="noopener noreferrer" className={styles.signalementLink}>Site web → Phishing Initiative</a>
-                </div>
-              </div>
-            )}
-            <button className={styles.resetBtn} onClick={reset}>Analyser un autre message</button>
           </div>
-        )}
+        </div>
+
+        <div className={styles.colRight}>
+          {result ? (
+            <div className={`${styles.result} ${config!.className}`}>
+              <div className={styles.resultHeader}>
+                <div className={`${styles.resultIconWrap} ${config!.iconClass}`}>
+                  <span className={styles.resultIconEmoji}>{config!.icon}</span>
+                </div>
+                <div>
+                  <span className={`${styles.badge} ${config!.badgeClass}`}>{config!.label}</span>
+                  <h3 className={styles.resultTitle}>{result.titre}</h3>
+                </div>
+              </div>
+              <p className={styles.resultExplication}>{result.explication}</p>
+              {result.signaux && result.signaux.length > 0 && (
+                <div className={styles.signaux}>
+                  <p className={styles.signauxTitle}>Indices repérés :</p>
+                  <ul className={styles.signauxList}>
+                    {result.signaux.map((s, i) => <li key={i} className={styles.signalItem}>{s}</li>)}
+                  </ul>
+                </div>
+              )}
+              <div className={styles.conseil}>
+                <span className={styles.conseilIcon}>→</span>
+                <p>{result.conseil}</p>
+              </div>
+              {result.verification && (
+                <div className={styles.verification}>
+                  <span className={styles.verificationIcon}>🔍</span>
+                  <div>
+                    <p className={styles.verificationTitle}>Comment vérifier vous-même :</p>
+                    <p>{result.verification}</p>
+                  </div>
+                </div>
+              )}
+              {result.pourquoi_credible && (
+                <div className={styles.pourquoiCredible}>
+                  <span className={styles.pourquoiCredibleIcon}>💡</span>
+                  <div>
+                    <p className={styles.pourquoiCredibleTitle}>Pourquoi ce message semble vrai :</p>
+                    <p>{result.pourquoi_credible}</p>
+                  </div>
+                </div>
+              )}
+              {result.niveau === 'danger' && (
+                <div className={styles.signalement}>
+                  <p className={styles.signauxTitle}>Signaler cette arnaque :</p>
+                  <div className={styles.signalementLinks}>
+                    <a href="https://www.33700.fr/" target="_blank" rel="noopener noreferrer" className={styles.signalementLink}>SMS → Signaler au 33700</a>
+                    <a href="https://www.signal-spam.fr/" target="_blank" rel="noopener noreferrer" className={styles.signalementLink}>Email → Signal Spam</a>
+                    <a href="https://phishing-initiative.eu/contrib/" target="_blank" rel="noopener noreferrer" className={styles.signalementLink}>Site web → Phishing Initiative</a>
+                  </div>
+                </div>
+              )}
+              <button className={styles.resetBtn} onClick={reset}>Analyser un autre message</button>
+            </div>
+          ) : (
+            <div className={styles.resultPlaceholder}>
+              <div className={styles.placeholderIcon}>🛡️</div>
+              <p className={styles.placeholderText}>Votre résultat apparaîtra ici</p>
+              <p className={styles.placeholderSub}>Entrez un message à gauche et cliquez sur Analyser</p>
+            </div>
+          )}
+        </div>
       </div>
 
       <div className={styles.trust}>
         <div className={styles.trustItem}><span className={styles.trustIcon}>🔒</span><span>Vos messages ne sont pas enregistrés</span></div>
         <div className={styles.trustItem}><span className={styles.trustIcon}>🇫🇷</span><span>Service en français, données non conservées</span></div>
-        </div>
+      </div>
 
       <div className={styles.shareBox}>
         <p className={styles.shareTitle}>Partagez cette application</p>
