@@ -2,6 +2,13 @@ import Link from 'next/link'
 
 const articles = [
   {
+    slug: 'gestionnaire-mots-de-passe',
+    titre: "Pourquoi utiliser un gestionnaire de mots de passe (et comment ça vous protège des arnaques)",
+    resume: "Réutiliser le même mot de passe partout vous expose au credential stuffing. Voici comment un gestionnaire comme Bitwarden vous protège, gratuitement.",
+    date: '22 juin 2026',
+    emoji: '🔐',
+  },
+  {
     slug: 'donnees-fuite',
     titre: "Vos données personnelles ont-elles fuité ? Comment le vérifier en 2 minutes",
     resume: "Des milliards d'identifiants volés circulent en ligne. HaveIBeenPwned permet de savoir en quelques secondes si votre email a été compromis — et quoi faire.",

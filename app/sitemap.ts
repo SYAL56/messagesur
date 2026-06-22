@@ -15,6 +15,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: 'https://www.messagesur.bzh/blog/gestionnaire-mots-de-passe',
+      lastModified: new Date('2026-06-22'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
       url: 'https://www.messagesur.bzh/blog/donnees-fuite',
       lastModified: new Date('2026-06-15'),
       changeFrequency: 'monthly',
