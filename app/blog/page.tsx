@@ -2,6 +2,13 @@ import Link from 'next/link'
 
 const articles = [
   {
+    slug: 'arnaques-whatsapp',
+    titre: "Arnaques WhatsApp : le faux proche qui a changé de numéro",
+    resume: "Un message WhatsApp d'un numéro inconnu prétend être un proche et réclame de l'argent en urgence. C'est l'une des arnaques les plus répandues — voici comment la déjouer.",
+    date: '29 juin 2026',
+    emoji: '💬',
+  },
+  {
     slug: 'gestionnaire-mots-de-passe',
     titre: "Pourquoi utiliser un gestionnaire de mots de passe (et comment ça vous protège des arnaques)",
     resume: "Réutiliser le même mot de passe partout vous expose au credential stuffing. Voici comment un gestionnaire comme Bitwarden vous protège, gratuitement.",
