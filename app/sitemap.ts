@@ -15,6 +15,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: 'https://www.messagesur.bzh/blog/faux-support-technique',
+      lastModified: new Date('2026-07-06'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
       url: 'https://www.messagesur.bzh/blog/arnaques-whatsapp',
       lastModified: new Date('2026-06-29'),
       changeFrequency: 'monthly',

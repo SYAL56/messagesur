@@ -2,6 +2,13 @@ import Link from 'next/link'
 
 const articles = [
   {
+    slug: 'faux-support-technique',
+    titre: "Faux support technique : quand Microsoft ou Orange vous appellent pour « sauver » votre ordinateur",
+    resume: "Un appel inattendu vous annonce que votre ordinateur est infecté et qu'un technicien doit y accéder à distance. C'est une arnaque — voici comment la reconnaître et quoi faire.",
+    date: '6 juillet 2026',
+    emoji: '🖥️',
+  },
+  {
     slug: 'arnaques-whatsapp',
     titre: "Arnaques WhatsApp : le faux proche qui a changé de numéro",
     resume: "Un message WhatsApp d'un numéro inconnu prétend être un proche et réclame de l'argent en urgence. C'est l'une des arnaques les plus répandues — voici comment la déjouer.",
