@@ -2,6 +2,13 @@ import Link from 'next/link'
 
 const articles = [
   {
+    slug: 'arnaques-sentimentales-ia',
+    titre: "Arnaques sentimentales par chatbot IA sur les applis de rencontre",
+    resume: "Un profil séduisant, des photos volées, et derrière l'écran un chatbot IA. Voici comment reconnaître ces arnaques et vous en protéger.",
+    date: '13 juillet 2026',
+    emoji: '💔',
+  },
+  {
     slug: 'faux-support-technique',
     titre: "Faux support technique : quand Microsoft ou Orange vous appellent pour « sauver » votre ordinateur",
     resume: "Un appel inattendu vous annonce que votre ordinateur est infecté et qu'un technicien doit y accéder à distance. C'est une arnaque — voici comment la reconnaître et quoi faire.",

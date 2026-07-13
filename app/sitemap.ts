@@ -15,6 +15,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: 'https://www.messagesur.bzh/blog/arnaques-sentimentales-ia',
+      lastModified: new Date('2026-07-13'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
       url: 'https://www.messagesur.bzh/blog/faux-support-technique',
       lastModified: new Date('2026-07-06'),
       changeFrequency: 'monthly',
