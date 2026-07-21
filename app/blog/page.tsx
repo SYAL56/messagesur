@@ -2,6 +2,13 @@ import Link from 'next/link'
 
 const articles = [
   {
+    slug: 'faux-codes-otp',
+    titre: "Vous recevez un code OTP que vous n'avez pas demandé ? C'est une attaque en cours",
+    resume: "Un code de validation par SMS arrive sans que vous l'ayez demandé, type StripeLink ? C'est le signe qu'un escroc tente de s'introduire dans l'un de vos comptes.",
+    date: '21 juillet 2026',
+    emoji: '🔢',
+  },
+  {
     slug: 'arnaques-sentimentales-ia',
     titre: "Arnaques sentimentales par chatbot IA sur les applis de rencontre",
     resume: "Un profil séduisant, des photos volées, et derrière l'écran un chatbot IA. Voici comment reconnaître ces arnaques et vous en protéger.",
