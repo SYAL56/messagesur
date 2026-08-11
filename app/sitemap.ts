@@ -15,6 +15,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: 'https://www.messagesur.bzh/blog/deepfakes-vocaux',
+      lastModified: new Date('2026-08-11'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
       url: 'https://www.messagesur.bzh/blog/faux-codes-otp',
       lastModified: new Date('2026-07-21'),
       changeFrequency: 'monthly',

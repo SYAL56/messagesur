@@ -2,6 +2,13 @@ import Link from 'next/link'
 
 const articles = [
   {
+    slug: 'deepfakes-vocaux',
+    titre: "Deepfakes vocaux : l'arnaque au clonage de voix qui explose en 2026",
+    resume: "Un appel de votre enfant, en larmes, réclamant un virement urgent ? Sa voix est peut-être clonée par IA à partir de quelques secondes trouvées sur les réseaux sociaux.",
+    date: '11 août 2026',
+    emoji: '🎙️',
+  },
+  {
     slug: 'faux-codes-otp',
     titre: "Vous recevez un code OTP que vous n'avez pas demandé ? C'est une attaque en cours",
     resume: "Un code de validation par SMS arrive sans que vous l'ayez demandé, type StripeLink ? C'est le signe qu'un escroc tente de s'introduire dans l'un de vos comptes.",
