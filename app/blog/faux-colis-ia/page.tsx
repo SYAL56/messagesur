@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 import s from '../article.module.css'
 
 export const metadata: Metadata = {
-  title: "Arnaque au faux colis avec photo générée par IA | MessageSûr",
+  title: "Arnaque au faux colis avec photo générée par IA",
   description: "Des escrocs envoient des SMS avec une photo de colis à votre nom générée par IA. Votre prénom sur l'étiquette ne prouve rien — voici comment les démasquer.",
   openGraph: {
     title: "Arnaque au faux colis avec photo générée par IA",

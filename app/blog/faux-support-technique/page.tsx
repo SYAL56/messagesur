@@ -2,7 +2,7 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: "Arnaque au faux support technique : Microsoft, Orange ou antivirus vous appellent ? | MessageSûr",
+  title: "Arnaque au faux support technique : Microsoft, Orange ou antivirus vous appellent ?",
   description: "Un appel vous annonce que votre ordinateur est infecté ? C'est une arnaque. Voici comment fonctionne le faux support technique et comment réagir.",
   openGraph: {
     title: "Arnaque au faux support technique : Microsoft, Orange ou antivirus vous appellent ?",

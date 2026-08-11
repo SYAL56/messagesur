@@ -2,7 +2,7 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: "Arnaques WhatsApp : le faux proche qui a changé de numéro | MessageSûr",
+  title: "Arnaques WhatsApp : le faux proche qui a changé de numéro",
   description: "Un proche vous contacte sur WhatsApp depuis un nouveau numéro et réclame de l'argent en urgence ? C'est une arnaque très répandue. Voici comment la reconnaître et quoi faire.",
   openGraph: {
     title: "Arnaques WhatsApp : le faux proche qui a changé de numéro",

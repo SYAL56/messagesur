@@ -2,7 +2,7 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: "Pourquoi utiliser un gestionnaire de mots de passe en 2026 | MessageSûr",
+  title: "Pourquoi utiliser un gestionnaire de mots de passe en 2026",
   description: "Réutiliser le même mot de passe partout vous expose aux arnaques. Voici pourquoi un gestionnaire de mots de passe (Bitwarden) vous protège, et comment bien l'utiliser.",
   openGraph: {
     title: "Pourquoi utiliser un gestionnaire de mots de passe en 2026",

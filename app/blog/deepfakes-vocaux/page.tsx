@@ -2,7 +2,7 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: "Deepfakes vocaux : l'arnaque au clonage de voix par IA qui explose en 2026 | MessageSûr",
+  title: "Deepfakes vocaux : l'arnaque au clonage de voix par IA qui explose en 2026",
   description: "Un appel de votre enfant, en larmes, réclamant un virement urgent ? Sa voix est peut-être clonée par IA à partir de quelques secondes trouvées sur les réseaux sociaux. Voici comment reconnaître cette arnaque et vous en protéger.",
   openGraph: {
     title: "Deepfakes vocaux : l'arnaque au clonage de voix par IA qui explose en 2026",

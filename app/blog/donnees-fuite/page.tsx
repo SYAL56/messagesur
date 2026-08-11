@@ -2,7 +2,7 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: "Vos données ont-elles fuité ? Vérifiez avec HaveIBeenPwned | MessageSûr",
+  title: "Vos données ont-elles fuité ? Vérifiez avec HaveIBeenPwned",
   description: "Des millions de Français ont leurs données exposées sans le savoir. HaveIBeenPwned permet de vérifier en quelques secondes si votre email a été compromis. Mode d'emploi.",
   openGraph: {
     title: "Vos données ont-elles fuité ? Vérifiez avec HaveIBeenPwned",

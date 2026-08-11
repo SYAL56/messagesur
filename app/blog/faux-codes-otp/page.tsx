@@ -2,7 +2,7 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: "Arnaque aux faux codes OTP par SMS : quand un code non demandé arrive | MessageSûr",
+  title: "Arnaque aux faux codes OTP par SMS : quand un code non demandé arrive",
   description: "Vous recevez un code de validation par SMS (type StripeLink) sans l'avoir demandé ? Ce n'est pas une erreur : c'est le signe qu'un escroc tente de s'introduire dans vos comptes.",
   openGraph: {
     title: "Arnaque aux faux codes OTP par SMS : quand un code non demandé arrive",

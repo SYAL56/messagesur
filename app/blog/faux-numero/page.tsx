@@ -2,7 +2,7 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: "\"Bonjour, tu as toujours ce numéro ?\" : l'arnaque au faux contact | MessageSûr",
+  title: "\"Bonjour, tu as toujours ce numéro ?\" : l'arnaque au faux contact",
   description: "Un inconnu vous envoie un SMS amical en prétendant vous connaître. C'est le début d'une arnaque très répandue. Voici comment la reconnaître et quoi faire.",
   openGraph: {
     title: "\"Bonjour, tu as toujours ce numéro ?\" : l'arnaque au faux contact",

@@ -2,7 +2,7 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: "Arnaques sentimentales par chatbot IA sur les applis de rencontre | MessageSûr",
+  title: "Arnaques sentimentales par chatbot IA sur les applis de rencontre",
   description: "Un profil séduisant, des photos volées, et derrière l'écran... un chatbot IA. Voici comment reconnaître les arnaques sentimentales boostées à l'intelligence artificielle et vous en protéger.",
   openGraph: {
     title: "Arnaques sentimentales par chatbot IA sur les applis de rencontre",

@@ -2,7 +2,7 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: "Arnaque à la carte Vitale expirée : comment la reconnaître | MessageSûr",
+  title: "Arnaque à la carte Vitale expirée : comment la reconnaître",
   description: "Vous avez reçu un SMS vous demandant de renouveler votre carte Vitale ? L'Assurance Maladie ne contacte jamais par SMS. Voici comment reconnaître cette arnaque en forte hausse en 2026.",
   openGraph: {
     title: "Arnaque à la carte Vitale expirée : comment la reconnaître",
