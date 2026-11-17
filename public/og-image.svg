@@ -1,0 +1,21 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F5F0E8"/>
+      <stop offset="100%" style="stop-color:#EDE5D5"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1100" cy="80" r="250" fill="none" stroke="#8B5A2B" stroke-width="2" opacity="0.08"/>
+  <circle cx="80" cy="550" r="175" fill="none" stroke="#8B5A2B" stroke-width="2" opacity="0.06"/>
+  <rect x="516" y="155" width="168" height="168" rx="28" fill="#8B5A2B"/>
+  <path d="M600 175 l-52 23 v35 c0 32 22 62 52 69 30-7 52-37 52-69v-35z" fill="#F5F0E8"/>
+  <path d="M585 228 l-17-17 8-8 9 9 26-26 8 8z" fill="#8B5A2B"/>
+  <text x="600" y="390" font-family="Georgia,serif" font-size="80" font-weight="700" fill="#5C3D1E" text-anchor="middle">MessageSûr</text>
+  <text x="600" y="445" font-family="Arial,sans-serif" font-size="28" fill="#8B6F5A" text-anchor="middle">Analysez vos SMS suspects en quelques secondes</text>
+  <rect x="390" y="475" width="420" height="50" rx="25" fill="#8B5A2B" opacity="0.1"/>
+  <rect x="390" y="475" width="420" height="50" rx="25" fill="none" stroke="#8B5A2B" stroke-width="1" opacity="0.2"/>
+  <circle cx="420" cy="500" r="6" fill="#8B5A2B"/>
+  <text x="440" y="506" font-family="Arial,sans-serif" font-size="18" fill="#8B5A2B">Protection contre les arnaques par SMS</text>
+  <text x="1150" y="600" font-family="Arial,sans-serif" font-size="20" fill="#B8956A" text-anchor="end">messagesur.bzh</text>
+</svg>
