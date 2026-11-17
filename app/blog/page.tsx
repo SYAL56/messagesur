@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 
 const articles = [
@@ -121,6 +122,12 @@ const articles = [
     emoji: '🚨',
   },
 ]
+
+export const metadata: Metadata = {
+  title: 'Blog : conseils contre les arnaques SMS, email et téléphone',
+  description: "Tous nos articles pour reconnaître et éviter les arnaques : faux SMS, phishing, deepfakes vocaux, faux colis et plus encore.",
+  alternates: { canonical: '/blog' },
+}
 
 export default function Blog() {
   return (

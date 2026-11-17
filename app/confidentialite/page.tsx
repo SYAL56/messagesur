@@ -1,5 +1,12 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import s from '../legal.module.css'
+
+export const metadata: Metadata = {
+  title: 'Politique de confidentialité',
+  description: "Découvrez comment MessageSûr traite vos données : messages supprimés après analyse, cookies techniques uniquement, newsletter et droits RGPD.",
+  alternates: { canonical: '/confidentialite' },
+}
 
 export default function Confidentialite() {
   return (

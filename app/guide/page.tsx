@@ -1,6 +1,13 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import s from '../blog/article.module.css'
 import g from './guide.module.css'
+
+export const metadata: Metadata = {
+  title: 'Guide : utiliser MessageSûr sur votre téléphone',
+  description: "Guide pas à pas pour ajouter MessageSûr sur l'écran d'accueil de votre iPhone ou Android et analyser un message suspect.",
+  alternates: { canonical: '/guide' },
+}
 
 export default function Guide() {
   return (
