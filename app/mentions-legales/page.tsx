@@ -14,7 +14,7 @@ export default function MentionsLegales() {
       <h1 className={s.title}>Mentions légales</h1>
 
       <h2 className={s.h2}>Éditeur du site</h2>
-      <p className={s.p}>Sylvain Albor<br/>Auto-entrepreneur<br/>Bretagne, France<br/>Email : messagesur.bzh@gmail.com</p>
+      <p className={s.p}>Sylvain ALBOR<br/>Auto-entrepreneur<br/>Bretagne, France<br/>SIRET : 534 031 299 00025<br/>Directeur de la publication : Sylvain ALBOR<br/>Contact : messagesur.bzh@gmail.com</p>
 
       <h2 className={s.h2}>Hébergement</h2>
       <p className={s.p}>Vercel Inc.<br/>340 Pine Street, Suite 701<br/>San Francisco, CA 94104, USA<br/>Données servies depuis le réseau européen (CDN Paris)</p>
