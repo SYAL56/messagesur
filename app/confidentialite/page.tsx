@@ -16,6 +16,9 @@ export default function Confidentialite() {
       <h2 className={s.h2}>Données traitées</h2>
       <p className={s.p}>Les messages que vous soumettez sont analysés par notre IA puis immédiatement supprimés. Nous ne conservons aucun message sur nos serveurs.</p>
 
+      <h2 className={s.h2}>Traitement par intelligence artificielle</h2>
+      <p className={s.p}>Lorsque vous soumettez un SMS pour analyse, le texte est transmis à Anthropic, Inc. (États-Unis) via leur API. Ce traitement est nécessaire au fonctionnement du service. Anthropic agit en tant que sous-traitant au sens du RGPD. Le transfert vers les États-Unis est encadré par les clauses contractuelles types de la Commission européenne. Les données transmises ne sont pas conservées par Anthropic au-delà du traitement immédiat. Pour plus d'informations : <a href="https://www.anthropic.com/privacy" target="_blank" rel="noopener noreferrer">https://www.anthropic.com/privacy</a></p>
+
       <h2 className={s.h2}>Cookies</h2>
       <p className={s.p}>Nous utilisons uniquement des cookies techniques nécessaires au fonctionnement du site. Aucun cookie publicitaire ou de tracking tiers n'est utilisé.</p>
 
