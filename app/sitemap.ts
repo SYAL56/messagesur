@@ -116,5 +116,29 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.7,
     },
+    {
+      url: 'https://www.messagesur.bzh/guide',
+      lastModified: new Date('2026-11-17'),
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
+    {
+      url: 'https://www.messagesur.bzh/about',
+      lastModified: new Date('2026-11-17'),
+      changeFrequency: 'monthly',
+      priority: 0.5,
+    },
+    {
+      url: 'https://www.messagesur.bzh/confidentialite',
+      lastModified: new Date('2026-11-17'),
+      changeFrequency: 'yearly',
+      priority: 0.3,
+    },
+    {
+      url: 'https://www.messagesur.bzh/mentions-legales',
+      lastModified: new Date('2026-11-17'),
+      changeFrequency: 'yearly',
+      priority: 0.3,
+    },
   ]
 }
