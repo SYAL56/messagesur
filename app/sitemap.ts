@@ -4,13 +4,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
       url: 'https://www.messagesur.bzh',
-      lastModified: new Date(),
+      lastModified: new Date('2026-11-17'),
       changeFrequency: 'weekly',
       priority: 1,
     },
     {
       url: 'https://www.messagesur.bzh/blog',
-      lastModified: new Date(),
+      lastModified: new Date('2026-08-11'),
       changeFrequency: 'weekly',
       priority: 0.8,
     },
