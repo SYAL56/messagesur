@@ -9,6 +9,7 @@ export const metadata: Metadata = {
     title: "Arnaque au faux colis avec photo générée par IA",
     description: "Des escrocs envoient des SMS avec une photo de colis à votre nom générée par IA. Voici comment les démasquer.",
     url: 'https://www.messagesur.bzh/blog/faux-colis-ia',
+    images: [{ url: 'https://www.messagesur.bzh/og-image.png', width: 1200, height: 630, alt: 'MessageSûr - Analysez vos SMS suspects' }],
   },
   alternates: { canonical: '/blog/faux-colis-ia' },
 }

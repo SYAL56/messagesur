@@ -9,6 +9,7 @@ export const metadata: Metadata = {
     title: 'Faux SMS Chronopost : comment reconnaître l\'arnaque ?',
     description: 'Les 5 signes pour repérer un faux SMS Chronopost et les bons réflexes à adopter.',
     url: 'https://www.messagesur.bzh/blog/chronopost',
+    images: [{ url: 'https://www.messagesur.bzh/og-image.png', width: 1200, height: 630, alt: 'MessageSûr - Analysez vos SMS suspects' }],
   },
   alternates: { canonical: '/blog/chronopost' },
 }

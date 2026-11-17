@@ -8,6 +8,7 @@ export const metadata: Metadata = {
     title: "\"Bonjour, tu as toujours ce numéro ?\" : l'arnaque au faux contact",
     description: "Un inconnu vous envoie un SMS amical en prétendant vous connaître. C'est le début d'une arnaque très répandue.",
     url: 'https://www.messagesur.bzh/blog/faux-numero',
+    images: [{ url: 'https://www.messagesur.bzh/og-image.png', width: 1200, height: 630, alt: 'MessageSûr - Analysez vos SMS suspects' }],
   },
   alternates: { canonical: '/blog/faux-numero' },
 }

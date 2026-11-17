@@ -8,6 +8,7 @@ export const metadata: Metadata = {
     title: "Arnaques WhatsApp : le faux proche qui a changé de numéro",
     description: "Un proche vous contacte sur WhatsApp depuis un nouveau numéro et réclame de l'argent en urgence ? C'est une arnaque très répandue.",
     url: 'https://www.messagesur.bzh/blog/arnaques-whatsapp',
+    images: [{ url: 'https://www.messagesur.bzh/og-image.png', width: 1200, height: 630, alt: 'MessageSûr - Analysez vos SMS suspects' }],
   },
   alternates: { canonical: '/blog/arnaques-whatsapp' },
 }

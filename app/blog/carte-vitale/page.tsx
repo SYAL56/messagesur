@@ -8,6 +8,7 @@ export const metadata: Metadata = {
     title: "Arnaque à la carte Vitale expirée : comment la reconnaître",
     description: "L'Assurance Maladie ne contacte jamais par SMS. Voici comment reconnaître cette arnaque en forte hausse en 2026.",
     url: 'https://www.messagesur.bzh/blog/carte-vitale',
+    images: [{ url: 'https://www.messagesur.bzh/og-image.png', width: 1200, height: 630, alt: 'MessageSûr - Analysez vos SMS suspects' }],
   },
   alternates: { canonical: '/blog/carte-vitale' },
 }

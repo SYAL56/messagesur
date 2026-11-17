@@ -8,6 +8,7 @@ export const metadata: Metadata = {
     title: "Arnaque aux faux péages par SMS : +900% de fraudes en 2026",
     description: "Un SMS vous réclame le paiement d'un péage impayé ? C'est une arnaque en explosion. Voici comment la reconnaître.",
     url: 'https://www.messagesur.bzh/blog/faux-peage',
+    images: [{ url: 'https://www.messagesur.bzh/og-image.png', width: 1200, height: 630, alt: 'MessageSûr - Analysez vos SMS suspects' }],
   },
   alternates: { canonical: '/blog/faux-peage' },
 }

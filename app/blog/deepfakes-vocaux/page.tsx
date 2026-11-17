@@ -8,6 +8,7 @@ export const metadata: Metadata = {
     title: "Deepfakes vocaux : l'arnaque au clonage de voix par IA qui explose en 2026",
     description: "Un appel de votre enfant, en larmes, réclamant un virement urgent ? Sa voix est peut-être clonée par IA. Voici comment reconnaître cette arnaque.",
     url: 'https://www.messagesur.bzh/blog/deepfakes-vocaux',
+    images: [{ url: 'https://www.messagesur.bzh/og-image.png', width: 1200, height: 630, alt: 'MessageSûr - Analysez vos SMS suspects' }],
   },
   alternates: { canonical: '/blog/deepfakes-vocaux' },
 }

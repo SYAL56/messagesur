@@ -10,6 +10,7 @@ export const metadata: Metadata = {
     title: 'J\'ai cliqué sur un lien suspect : que faire ?',
     description: 'Les réflexes à avoir immédiatement après avoir cliqué sur un lien suspect.',
     url: 'https://www.messagesur.bzh/blog/clic-suspect',
+    images: [{ url: 'https://www.messagesur.bzh/og-image.png', width: 1200, height: 630, alt: 'MessageSûr - Analysez vos SMS suspects' }],
   },
   alternates: { canonical: '/blog/clic-suspect' },
 }

@@ -8,6 +8,7 @@ export const metadata: Metadata = {
     title: "Arnaque aux faux codes OTP par SMS : quand un code non demandé arrive",
     description: "Un code de validation arrive alors que vous n'avez rien demandé ? Voici ce que ça signifie vraiment et comment réagir.",
     url: 'https://www.messagesur.bzh/blog/faux-codes-otp',
+    images: [{ url: 'https://www.messagesur.bzh/og-image.png', width: 1200, height: 630, alt: 'MessageSûr - Analysez vos SMS suspects' }],
   },
   alternates: { canonical: '/blog/faux-codes-otp' },
 }

@@ -9,6 +9,7 @@ export const metadata: Metadata = {
     title: 'Arnaque Ameli : faux emails et SMS de l\'Assurance Maladie',
     description: 'Comment reconnaître un faux email ou SMS Ameli et se protéger.',
     url: 'https://www.messagesur.bzh/blog/ameli',
+    images: [{ url: 'https://www.messagesur.bzh/og-image.png', width: 1200, height: 630, alt: 'MessageSûr - Analysez vos SMS suspects' }],
   },
   alternates: { canonical: '/blog/ameli' },
 }

@@ -9,6 +9,7 @@ export const metadata: Metadata = {
     title: 'Vishing : l\'arnaque au faux conseiller bancaire par téléphone',
     description: 'Les techniques des escrocs au téléphone et les réflexes pour se protéger du vishing.',
     url: 'https://www.messagesur.bzh/blog/vishing',
+    images: [{ url: 'https://www.messagesur.bzh/og-image.png', width: 1200, height: 630, alt: 'MessageSûr - Analysez vos SMS suspects' }],
   },
   alternates: { canonical: '/blog/vishing' },
 }

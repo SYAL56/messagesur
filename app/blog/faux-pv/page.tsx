@@ -9,6 +9,7 @@ export const metadata: Metadata = {
     title: 'Faux PV et fausses amendes : reconnaître l\'arnaque',
     description: 'Comment repérer les faux PV et fausses amendes envoyés par email ou SMS.',
     url: 'https://www.messagesur.bzh/blog/faux-pv',
+    images: [{ url: 'https://www.messagesur.bzh/og-image.png', width: 1200, height: 630, alt: 'MessageSûr - Analysez vos SMS suspects' }],
   },
   alternates: { canonical: '/blog/faux-pv' },
 }

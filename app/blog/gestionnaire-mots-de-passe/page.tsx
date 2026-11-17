@@ -8,6 +8,7 @@ export const metadata: Metadata = {
     title: "Pourquoi utiliser un gestionnaire de mots de passe en 2026",
     description: "Réutiliser le même mot de passe partout vous expose aux arnaques. Voici comment un gestionnaire vous protège.",
     url: 'https://www.messagesur.bzh/blog/gestionnaire-mots-de-passe',
+    images: [{ url: 'https://www.messagesur.bzh/og-image.png', width: 1200, height: 630, alt: 'MessageSûr - Analysez vos SMS suspects' }],
   },
   alternates: { canonical: '/blog/gestionnaire-mots-de-passe' },
 }

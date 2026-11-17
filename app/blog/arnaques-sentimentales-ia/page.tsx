@@ -8,6 +8,7 @@ export const metadata: Metadata = {
     title: "Arnaques sentimentales par chatbot IA sur les applis de rencontre",
     description: "Un profil séduisant, des photos volées, et derrière l'écran... un chatbot IA. Voici comment reconnaître ces arnaques et vous en protéger.",
     url: 'https://www.messagesur.bzh/blog/arnaques-sentimentales-ia',
+    images: [{ url: 'https://www.messagesur.bzh/og-image.png', width: 1200, height: 630, alt: 'MessageSûr - Analysez vos SMS suspects' }],
   },
   alternates: { canonical: '/blog/arnaques-sentimentales-ia' },
 }

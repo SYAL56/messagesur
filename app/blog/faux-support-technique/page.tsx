@@ -8,6 +8,7 @@ export const metadata: Metadata = {
     title: "Arnaque au faux support technique : Microsoft, Orange ou antivirus vous appellent ?",
     description: "Un appel vous annonce que votre ordinateur est infecté ? C'est une arnaque. Voici comment la reconnaître et quoi faire.",
     url: 'https://www.messagesur.bzh/blog/faux-support-technique',
+    images: [{ url: 'https://www.messagesur.bzh/og-image.png', width: 1200, height: 630, alt: 'MessageSûr - Analysez vos SMS suspects' }],
   },
   alternates: { canonical: '/blog/faux-support-technique' },
 }

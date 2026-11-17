@@ -8,6 +8,7 @@ export const metadata: Metadata = {
     title: "Vos données ont-elles fuité ? Vérifiez avec HaveIBeenPwned",
     description: "Des millions de Français ont leurs données exposées sans le savoir. Voici comment vérifier et quoi faire.",
     url: 'https://www.messagesur.bzh/blog/donnees-fuite',
+    images: [{ url: 'https://www.messagesur.bzh/og-image.png', width: 1200, height: 630, alt: 'MessageSûr - Analysez vos SMS suspects' }],
   },
   alternates: { canonical: '/blog/donnees-fuite' },
 }
